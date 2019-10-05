@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Profile;
+use App\Repositories\ProfileRepository as Profile;
 
 class ProfileController extends Controller
 {
-    public function index(Profile $profile)
+    private $profile;
+
+    function __construct(Profile $profile)
     {
-        return view('profile.index', compact('profile', $profile));
+        $this->profile = $profile;
+    }
+
+    public function show($id)
+    {
+        return view('profile.index', ['profile' => $this->profile->find($id)]);
     }
 }

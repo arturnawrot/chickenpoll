@@ -4,18 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Repositories\UserRepository as User;
+
 
 class UserController extends Controller
 {
- /**
+    private $user;
+
+    function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
      */
     public function index()
     {
-        //
+        return view('admin.user.index', ['users' => $this->user->all()]);
     }
 
     /**
@@ -41,10 +49,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function show(User $user)
+    public function show()
     {
         //
     }
@@ -52,10 +60,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function edit(User $user)
+    public function edit()
     {
         //
     }
@@ -63,10 +71,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function update(User $user)
+    public function update()
     {
         //
     }
@@ -74,10 +82,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function destroy(User $user)
+    public function destroy()
     {
         //
-    }}
+    }
+}

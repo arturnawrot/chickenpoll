@@ -4,9 +4,11 @@ Route::view('/', 'index');
 
 Auth::routes();
 
-Route::get('profile/{profile}', 'ProfileController@index')->name('profile.index');
+// {profile} is a username
+// "me" is an exception which returns username of an authenticated user.
+Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin-dashboard');
-    Route::resource('roles', 'RoleController');
+    Route::get('users', 'UserController@index')->name('admin.users.index');
 });

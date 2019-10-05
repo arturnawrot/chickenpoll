@@ -10,6 +10,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::Class);
     }
-    
-    // public function findByUsername()
+
+    public function scopeFindByUsername($query, $name)
+    {
+        return $query->where('user_id', User::Where('name', $name)->firstOrFail()->id)->firstOrFail();
+    }
 }

@@ -25,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -33,9 +33,13 @@ class RoleController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        // In order to create a new role we need to recreate all other.
+        foreach($request->roles as $role)
+        {
+            // save all roles
+        }
     }
 
     /**

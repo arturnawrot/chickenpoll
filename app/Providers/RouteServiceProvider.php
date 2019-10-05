@@ -26,15 +26,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
 
+        // Convert username to the profile id
         Route::bind('profile', function ($value) {
-            if($value == 'me' && Auth::Check()) {
-                return Profile::Where('user_id', auth()->user()->id)->firstOrFail();
-            }
-            return Profile::Where('user_id', User::where('name', $value)->firstOrFail()->id)->first();
+            if($value == 'me' && Auth::Check())
+                $value= auth()->user()->name;
+            return Profile::findByUsername($value)->id;
         });
     }
 
