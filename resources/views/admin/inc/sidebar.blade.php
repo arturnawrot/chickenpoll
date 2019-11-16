@@ -20,5 +20,11 @@
                   <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
           </li>
-          </ul>
-        </nav>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.roles.index') }}">
+                  <span class="menu-title">Roles</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
+      </ul>
+</nav>

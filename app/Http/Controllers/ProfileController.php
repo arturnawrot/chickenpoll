@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\ProfileRepository as Profile;
+use App\Repositories\Contracts\ProfileRepositoryInterface as Profile;
 
 class ProfileController extends Controller
 {

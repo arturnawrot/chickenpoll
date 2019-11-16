@@ -1,10 +1,11 @@
 <?php 
-namespace App\Repositories;
- 
+namespace App\Repositories\Eloquent;
+
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Eloquent\Repository;
- 
-class ProfileRepository extends Repository {
+use App\Repositories\Contracts\ProfileRepositoryInterface;
+
+class ProfileRepository extends Repository implements ProfileRepositoryInterface {
  
     /**
      * Specify Model class name

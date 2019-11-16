@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        $roles['root'] = Role::create(['name' => 'root']);
+        $roles['root'] = Role::create(['name' => 'root', 'authority' => 10]);
+        $roles['admin'] = Role::create(['name' => 'admin']);
+        $roles['user'] = Role::create(['name' => 'user']);
+
         $permissions['admin-dashboard'] = Permission::create(['name' => 'admin-dashboard']);
 
         $permissions['permissions.index'] = Permission::create(['name' => 'permission.view']);

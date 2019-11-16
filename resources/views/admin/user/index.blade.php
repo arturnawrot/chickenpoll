@@ -12,9 +12,10 @@
                     <tr>
                         <th> User </th>
                         <th> First name </th>
-                        <th> Progress </th>
-                        <th> Amount </th>
+                        <th> Email </th>
+                        <th> Roles </th>
                         <th> Registered at </th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,13 +25,14 @@
                                     <img src="/images/avatar.png" alt="image">
                                 </td>
                                 <td> {{ $user->name }} </td>
+                                <td> {{ $user->email }} </td>
                                 <td>
                                     @foreach($user->getRoleNames() as $role)
                                         {{ $role,',' }}
                                     @endforeach
                                 </td>
-                                <td> $ 77.99 </td>
                                 <td> {{ $user->created_at }} </td>
+                                <td><a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-fw">Edit</a></td>
                             </tr>
                         @endforeach
                     </tbody>

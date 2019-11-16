@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\UserRepository as User;
-
+use App\Repositories\Contracts\UserRepositoryInterface as User;
 
 class UserController extends Controller
 {
@@ -63,9 +62,9 @@ class UserController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit()
+    public function edit($id)
     {
-        //
+        return view('admin.user.edit', ['user' => $this->user->find($id)]);
     }
 
     /**

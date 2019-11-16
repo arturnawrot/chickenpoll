@@ -4,28 +4,30 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Role;
+use App\Repositories\Contracts\RoleRepositoryInterface as Role;
+use App\Repositories\Contracts\PermissionRepositoryInterface as Permission;
 
 class RoleController extends Controller
 {
- /**
+    private $role;
+    private $permission;
+
+    function __construct(Role $role, Permission $permission)
+    {
+        $this->role = $role;
+        $this->permission = $permission;
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return Response
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-
+        return view('admin.role.index', [
+            'roles' => $this->role->all(),
+            'permissions' => $this->permission->all()
+        ]);
     }
 
     /**
@@ -35,11 +37,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        // In order to create a new role we need to recreate all other.
-        foreach($request->roles as $role)
-        {
-            // save all roles
-        }
+        $role = $this->role->create($request->only('name', 'authority'));
+        $role->syncPermissions($request->only('permissions'));
+        return redirect()->back();
     }
 
     /**

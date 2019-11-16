@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HasAuthority;
 use Spatie\Permission\Guard;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasPermissions;
@@ -17,11 +16,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Role extends Model implements RoleContract
 {
     use HasPermissions;
-    use HasAuthority;
     use RefreshesPermissionCache;
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'roles'      => 'array'
+    ];
+    
     public function __construct(array $attributes = [])
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? config('auth.defaults.guard');
@@ -156,5 +158,10 @@ class Role extends Model implements RoleContract
         }
 
         return $this->permissions->contains('id', $permission->id);
+    }
+
+    public function isMoreImportant(Role $role)
+    {
+        return $this->authority > $role->authority;
     }
 }

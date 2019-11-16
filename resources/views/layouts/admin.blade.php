@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Purple Admin</title>
     <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
@@ -32,5 +33,6 @@
       <!-- page-body-wrapper ends -->
     </div>
     <script src="{{ asset('js/admin/app.js') }}"></script>
+    @yield('bottom')
   </body>
 </html>
