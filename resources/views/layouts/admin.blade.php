@@ -20,6 +20,8 @@
         <div class="main-panel">
           <div class="content-wrapper">
               <div class="app">
+              <div class="flash-message">
+                  @include('inc.alert')
                   @yield('content')
               </div>
           </div>

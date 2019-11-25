@@ -5,17 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\RoleRepositoryInterface as Role;
-use App\Repositories\Contracts\PermissionRepositoryInterface as Permission;
 
 class RoleController extends Controller
 {
     private $role;
-    private $permission;
 
-    function __construct(Role $role, Permission $permission)
+    function __construct(Role $role)
     {
         $this->role = $role;
-        $this->permission = $permission;
     }
     /**
      * Display a listing of the resource.
@@ -25,8 +22,7 @@ class RoleController extends Controller
     public function index()
     {
         return view('admin.role.index', [
-            'roles' => $this->role->all(),
-            'permissions' => $this->permission->all()
+            'roles' => $this->role->all()
         ]);
     }
 
@@ -39,7 +35,7 @@ class RoleController extends Controller
     {
         $role = $this->role->create($request->only('name', 'authority'));
         $role->syncPermissions($request->only('permissions'));
-        return redirect()->back();
+        return redirect()->back()->with('alert-success', 'Role has been added!');
     }
 
     /**
@@ -48,7 +44,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
         //
     }
@@ -59,9 +55,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        //
+        return view('admin.role.edit', [
+            'roles' => $this->role->all(),
+            'role' => $this->role->find($id)
+        ]);
     }
 
     /**
@@ -70,9 +69,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Role $role)
+    public function update(Request $request, $id)
     {
-        //
+        $role = $this->role->find($id);
+        $role->syncPermissions($request->permissions);
+        return redirect()->back()->with('alert-success', 'Role has been updated!');
     }
 
     /**
@@ -81,8 +82,17 @@ class RoleController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy(Role $role)
+    public function destroy(Request $request, $id)
     {
-        //
+        $role = $this->role->find($id);
+
+        // Replace a role with another one
+        $newRole = $request->role;
+        $role->users()->each(function($user, $key) use ($newRole) {
+            $user->syncRoles([$newRole]);
+        });
+        $role->delete();
+
+        return redirect()->route('admin.roles.index')->with('alert-success', 'Role has been removed!');
     }
 }

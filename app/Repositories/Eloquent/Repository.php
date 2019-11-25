@@ -106,7 +106,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
      */
     public function find($id, $columns = array('*')) {
         $this->applyCriteria();
-        return $this->model->find($id, $columns);
+        return $this->model->findOrFail($id, $columns);
     }
  
     /**
@@ -117,7 +117,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
      */
     public function findBy($attribute, $value, $columns = array('*')) {
         $this->applyCriteria();
-        return $this->model->where($attribute, '=', $value)->first($columns);
+        return $this->model->where($attribute, '=', $value)->firstOrFail($columns);
     }
  
     /**

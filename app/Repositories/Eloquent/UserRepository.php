@@ -16,4 +16,5 @@ class UserRepository extends Repository implements UserRepositoryInterface {
     {
         return 'App\Models\User';
     }
+
 }

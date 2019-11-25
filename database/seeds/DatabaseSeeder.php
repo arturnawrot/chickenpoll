@@ -14,15 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-
-        $users['root'] = User::Create([
-            'name' => 'root',
-            'email' => 'root@root.com',
-            'password' => bcrypt('1234511')
-        ]);
-
-
         $roles['root'] = Role::create(['name' => 'root', 'authority' => 10]);
         $roles['admin'] = Role::create(['name' => 'admin']);
         $roles['user'] = Role::create(['name' => 'user']);
@@ -45,6 +36,17 @@ class DatabaseSeeder extends Seeder
         $permissions['profile.update'] = Permission::create(['name' => 'profile.update']);
 
         $roles['root']->syncPermissions($permissions);
+
+        $users['root'] = User::Create([
+            'name' => 'root',
+            'email' => 'root@root.com',
+            'password' => bcrypt('1234511')
+        ]);
+
         $users['root']->assignRole($roles['root']);
+
+        factory(App\Models\User::class, 100)->create()->each(function ($user) {
+            $user->assignRole('user');
+        });;
     }
 }

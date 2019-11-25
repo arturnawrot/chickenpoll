@@ -4,21 +4,23 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4>{{ $user->name }}</h4>
-                <div class="my-4">
+            <form class="forms-sample" method="POST" action="{{ route('admin.users.update', $user->id) }}">
+                        @csrf
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" value="{{ $user->name }}" class="form-control" id="name">
+                      </div>                <div class="my-4">
                     <th>
                         <td>Date of registration:</td>
                         <td>{{ $user->created_at }} </td>
                     </th>
                 </div>
-
-                    <form class="forms-sample">
                         <div class="form-group">
                             <img class="profile-image" src="/images/avatar.png" alt="image">
                         </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
-                        <input value="{{ $user->email }}" type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        <input name="email" value="{{ $user->email }}" type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
                       </div>
                       <!-- <div class="form-group">
 
@@ -34,9 +36,12 @@
 
                       <div class="form-group">
                         <label for="exampleSelectGender">Role</label>
-                        <select class="form-control" id="exampleSelectGender">
-                            @foreach($user->getRoleNames() as $role)
-                                <option>{{ $role,',' }}</option>
+                        <select name="role" class="form-control" id="exampleSelectGender">
+                                <option>{{ $user->getRoleNames()[0] }}</option>
+                            @foreach($roles as $role)
+                                @if($role->name != $user->getRoleNames()[0])
+                                  <option>{{ $role->name ,',' }}</option>
+                                @endif
                             @endforeach
                         </select>
                       </div>

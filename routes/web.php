@@ -11,10 +11,16 @@ Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show');
 Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin-dashboard');
 
-    Route::get('users', 'UserController@index')->name('admin.users.index');
-    Route::get('user/{id}', 'UserController@edit')->name('admin.users.edit');
-
-    Route::get('roles', 'RoleController@index')->name('admin.roles.index');
-    Route::get('role/{id}', 'RoleController@edit')->name('admin.roles.edit');
-    Route::post('role/', 'RoleController@store')->name('admin.roles.store');
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'UserController@index')->name('admin.users.index');
+        Route::get('/{id}', 'UserController@edit')->name('admin.users.edit');
+        Route::post('/{id}', 'UserController@update')->name('admin.users.update');
+    });
+    Route::group(['prefix' => 'role'], function () {
+        Route::get('/', 'RoleController@index')->name('admin.roles.index');
+        Route::get('/{id}', 'RoleController@edit')->name('admin.roles.edit');
+        Route::post('/', 'RoleController@store')->name('admin.roles.store');
+        Route::patch('/{id}', 'RoleController@update')->name('admin.roles.update');
+        Route::delete('/{id}', 'RoleController@destroy')->name('admin.roles.destroy');
+    });
 });

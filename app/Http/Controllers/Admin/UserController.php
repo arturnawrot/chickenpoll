@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index', ['users' => $this->user->all()]);
+        return view('admin.user.index', ['users' => $this->user->paginate(50)]);
     }
 
     /**
@@ -64,7 +64,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.edit', ['user' => $this->user->find($id)]);
+        return view('admin.user.edit', [
+            'user' => $this->user->find($id)
+        ]);
     }
 
     /**
@@ -73,9 +75,12 @@ class UserController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update()
+    public function update(Request $request, $id)
     {
-        //
+        $user = $this->user->find($id);
+        $user->update($request->only('name', 'email'));
+        $user->syncRoles([$request->role]);
+        return redirect()->back()->with('alert-success', 'User was successful updated!');
     }
 
     /**
