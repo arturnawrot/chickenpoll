@@ -23,6 +23,10 @@ class Role extends Model implements RoleContract
     protected $casts = [
         'roles'      => 'array'
     ];
+
+    public $sortable = [
+        'name'
+    ];
     
     public function __construct(array $attributes = [])
     {

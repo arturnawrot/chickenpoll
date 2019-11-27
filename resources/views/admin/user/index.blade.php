@@ -11,10 +11,10 @@
                     <thead>
                     <tr>
                         <th> User </th>
-                        <th> First name </th>
-                        <th> Email </th>
-                        <th> Roles </th>
-                        <th> Registered at </th>
+                        <th>@sortablelink('name')</th>
+                        <th>@sortablelink('email')</th>
+                        <th>role</th>
+                        <th>@sortablelink('created_at')</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -27,9 +27,7 @@
                                 <td> {{ $user->name }} </td>
                                 <td> {{ $user->email }} </td>
                                 <td>
-                                    @foreach($user->getRoleNames() as $role)
-                                        {{ $role,',' }}
-                                    @endforeach
+                                    {{ $user->highestRole()->name }}
                                 </td>
                                 <td> {{ $user->created_at }} </td>
                                 <td><a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-fw">Edit</a></td>
@@ -37,7 +35,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $users->links() }}
+                {!! $users->appends(\Request::except('page'))->render() !!}
             </div>
         </div>
     </div>

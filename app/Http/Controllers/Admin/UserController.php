@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index', ['users' => $this->user->paginate(50)]);
+        return view('admin.user.index', ['users' => $this->user->sortable()->paginate(50)]);
     }
 
     /**
