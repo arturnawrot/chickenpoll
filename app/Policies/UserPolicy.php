@@ -10,17 +10,6 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view any models.
-     *
-     * @param  \App\Models\User  $user
-     * @return mixed
-     */
-    public function viewAny(User $user)
-    {
-        // return $user->hasPermissionTo('user.view');
-    }
-
-    /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
@@ -29,7 +18,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        return $user->hasPermissionTo('user.view');
     }
 
     /**
@@ -52,7 +41,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        // return $user->hasPermissionTo('')
+        return $user->highestRole()->authority > $model->highestRole()->authority;
     }
 
     /**

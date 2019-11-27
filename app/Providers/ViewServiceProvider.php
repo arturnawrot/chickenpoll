@@ -35,6 +35,7 @@ class ViewServiceProvider extends ServiceProvider
         View::Composer(
             [
                 'admin.user.edit',
+                'admin.role.edit',
             ],
             'App\Http\View\Composers\Admin\RoleComposer'
         );

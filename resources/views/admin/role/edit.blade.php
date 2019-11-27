@@ -9,7 +9,7 @@
                 <form action="{{ route('admin.roles.destroy', $role->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        @if(count($role->users) > 0)
+                        @if($role->users->count() > 0)
                         <p>You can remove this rule and replace with:</p>
                                 <div class="form-group">
                                         <label>Role</label>

@@ -106,7 +106,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
      */
     public function find($id, $columns = array('*')) {
         $this->applyCriteria();
-        return $this->model->findOrFail($id, $columns);
+        return $this->makeModel()->find($id, $columns);
     }
  
     /**
@@ -117,7 +117,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
      */
     public function findBy($attribute, $value, $columns = array('*')) {
         $this->applyCriteria();
-        return $this->model->where($attribute, '=', $value)->firstOrFail($columns);
+        return $this->makeModel()->where($attribute, '=', $value)->first($columns);
     }
  
     /**
@@ -131,6 +131,12 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
             throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
  
         return $this->model = $model->newQuery();
+    }
+
+    public function instance($data = [])
+    {
+        $model = $this->app->make($this->model());
+        return $model->fill($data);
     }
  
     /**

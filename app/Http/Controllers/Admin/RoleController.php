@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\RoleRepositoryInterface as Role;
 
@@ -33,20 +34,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $role = $this->role->create($request->only('name', 'authority'));
-        $role->syncPermissions($request->only('permissions'));
-        return redirect()->back()->with('alert-success', 'Role has been added!');
-    }
+        $role = $this->role->instance($request->only('name', 'authority'));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        $this->authorize('create', $role);
+
+        $role->save();
+        $role->syncPermissions($request->only('permissions'));
+
+        return redirect()->back()->with('alert-success', 'Role has been added!');
     }
 
     /**
@@ -57,8 +52,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
+        $this->middleware(['permission:role.view']);
+
         return view('admin.role.edit', [
-            'roles' => $this->role->all(),
             'role' => $this->role->find($id)
         ]);
     }
@@ -72,6 +68,11 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $role = $this->role->find($id);
+
+        // @TODO It just looks bad :P
+        $this->authorize('create', $this->role->instance($request->only('name', 'authority')));
+
+        $role->update($request->only('name', 'authority'));
         $role->syncPermissions($request->permissions);
         return redirect()->back()->with('alert-success', 'Role has been updated!');
     }
@@ -86,11 +87,19 @@ class RoleController extends Controller
     {
         $role = $this->role->find($id);
 
+        $this->authorize('delete', $role);
+
         // Replace a role with another one
-        $newRole = $request->role;
-        $role->users()->each(function($user, $key) use ($newRole) {
-            $user->syncRoles([$newRole]);
-        });
+        if($role->users()->count() > 0) {
+            $newRole = $this->role->findBy('name', $request->role);
+            if (Gate::denies('update-role', auth()->user(), $newRole)) {
+                abort(403);
+            }
+            $role->users()->each(function($user, $key) use ($newRole) {
+                $user->syncRoles([$newRole->name]);
+            });
+        }
+
         $role->delete();
 
         return redirect()->route('admin.roles.index')->with('alert-success', 'Role has been removed!');

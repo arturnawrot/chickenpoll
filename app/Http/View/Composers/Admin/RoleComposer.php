@@ -12,7 +12,7 @@ class RoleComposer
      *
      * @var UserRepository
      */
-    protected $roles;
+    protected $role;
 
     /**
      * Create a new profile composer.
@@ -23,7 +23,7 @@ class RoleComposer
     public function __construct(Role $roles)
     {
         // Dependencies automatically resolved by service container...
-        $this->roles = $roles;
+        $this->role = $roles;
     }
 
     /**
@@ -34,6 +34,6 @@ class RoleComposer
      */
     public function compose(View $view)
     {
-        $view->with('roles', $this->roles->all());
+        $view->with('roles', $this->role->all());
     }
 }
