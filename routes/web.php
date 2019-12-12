@@ -24,3 +24,10 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'ad
         Route::delete('/{id}', 'RoleController@destroy')->name('admin.roles.destroy');
     });
 });
+
+Route::post('/add', 'PollController@store')->name('polls.store');
+Route::get('/{id}', 'PollController@show')->name('polls.show');
+
+Route::get('/test', function () {
+    // broadcast(new App\Events\test);
+});

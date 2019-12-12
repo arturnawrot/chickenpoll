@@ -59,6 +59,7 @@ class UserController extends Controller
 
         $this->authorize('update', $user);
 
+        // @TODO Not clean
         if (Gate::denies('update-role', $role)) {
             abort(403);
         }
