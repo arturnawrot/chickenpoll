@@ -18,8 +18,8 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-            // Echo.channel('laravel_database_test')
-            //     .listen('test', (e) => {
+            // window.Echo.channel('test')
+            // .listen('test', (e) => {
             //     console.log(e);
             // });
         }

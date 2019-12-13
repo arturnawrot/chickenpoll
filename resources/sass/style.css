@@ -7,7 +7,7 @@ html, body {
     max-width: 40px;
     max-height: 40px;
 }
-.display {
+.display, .option {
     color: rgb(54, 54, 54);
     font-weight: 700;
 }
@@ -51,5 +51,10 @@ input::-webkit-input-placeholder {
 }
 .lead {
     color: #dc3545;
-    font-weight: 800;
+}
+.progress-bar, .lead {
+    font-weight: bold;
+}
+.progress-bar {
+    font-size: 1.06rem;
 }

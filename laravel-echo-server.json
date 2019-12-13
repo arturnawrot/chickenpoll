@@ -1,12 +1,7 @@
 {
 	"authHost": "http://laravel.app",
 	"authEndpoint": "/broadcasting/auth",
-	"clients": [
-		{
-			"appId": "e0a29dfbba48b7a3",
-			"key": "58ebd8d24b2e8182ba76e94272af34d0"
-		}
-	],
+	"clients": [],
 	"database": "redis",
 	"databaseConfig": {
 		"redis": {},
@@ -17,11 +12,11 @@
 	"devMode": true,
 	"host": null,
 	"port": "6001",
-	"protocol": "http",
+	"protocol": "https",
 	"socketio": {},
 	"secureOptions": 67108864,
-	"sslCertPath": "",
-	"sslKeyPath": "",
+	"sslCertPath": "/etc/nginx/ssl/homestead.test.crt",
+	"sslKeyPath": "/etc/nginx/ssl/homestead.test.key",
 	"sslCertChainPath": "",
 	"sslPassphrase": "",
 	"subscribers": {
@@ -29,9 +24,9 @@
 		"redis": true
 	},
 	"apiOriginAllow": {
-		"allowCors": true,
-		"allowOrigin": "http://laravel.dev:80",
-		"allowMethods": "GET, POST",
-		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
+		"allowCors": false,
+		"allowOrigin": "",
+		"allowMethods": "",
+		"allowHeaders": ""
 	}
 }

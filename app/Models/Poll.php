@@ -23,6 +23,11 @@ class Poll extends Model
         return $this->hasMany(Option::class);
     }
 
+    public function votes()
+    {
+        return $this->hasManyThrough(Answer::Class, Option::Class);
+    }
+
     // public function answers()
     // {
     //     return $this->hasMany(Answer::class);

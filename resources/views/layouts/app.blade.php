@@ -14,11 +14,24 @@
 </head>
 <body>
     <div id="app">
-            @include('inc.alert')
-            @yield('content')
+    <div class="container h-100">
+        <div class="row align-items-center">
+            <div class="w-100 mt-5 pt-5">
+                <h1 class="text-center title">
+                <span style="color:#404346;">Easy</span><span style="color:#ef145b;">Poll</span>
+                </h1>
+                <div class="mt-5 col-lg-10">
+                    <h2 class="display">@yield('title')</h2>
+                    <p class="lead">@yield('description')</p>
+                    @include('inc.alert')
+                    @yield('content')
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Scripts -->
+    @yield('body-bottom')
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

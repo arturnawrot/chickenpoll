@@ -21,4 +21,9 @@ class Option extends Model
     {
         return $this->belongsTo(Poll::Class);
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Answer::Class);
+    }
 }

@@ -19,7 +19,8 @@ class RepositoryServiceProvider extends ServiceProvider
             'Role',
             'Permission',
             'Poll',
-            'Option'
+            'Option',
+            'Answer'
         );
 
         foreach ($models as $model) {

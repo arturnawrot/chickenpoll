@@ -25,9 +25,12 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'ad
     });
 });
 
+// Route::get('/yolo', function () {
+//     broadcast(new App\Events\test);
+//     echo 'test';
+// });
+
 Route::post('/add', 'PollController@store')->name('polls.store');
 Route::get('/{id}', 'PollController@show')->name('polls.show');
 
-Route::get('/test', function () {
-    // broadcast(new App\Events\test);
-});
+Route::post('/vote', 'AnswerController@store')->name('answers.store');

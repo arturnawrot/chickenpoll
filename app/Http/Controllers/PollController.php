@@ -32,7 +32,7 @@ class PollController extends Controller
             $poll->options()->save($option);
         }
 
-        return view('poll.show', ['poll' => $poll]);
+        return redirect()->route('polls.show', $poll->id);
     }
 
     public function show($id)
