@@ -19,8 +19,13 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+let recaptchaScript = document.createElement('script');
+recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js');
+document.head.appendChild(recaptchaScript);
+
 Vue.component('example', require('./components/ExampleComponent.vue').default);
 Vue.component('shortlink', require('./components/Shortlink.vue').default);
+Vue.component('progressbar', require('./components/ProgressBar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

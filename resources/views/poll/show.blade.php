@@ -27,9 +27,7 @@ $totalVotes= $poll->votes->count();
                                 $percentage = $optionVotes / $totalVotes * 100;
                             }
                         ?>
-                        <div class="progress-bar" role="progressbar" style="width: {{$percentage}}%;" aria-valuenow="{{$percentage}}" aria-valuemin="0" aria-valuemax="100">
-                            {{ $optionVotes }} votes
-                        </div>
+                        <progressbar percentage="{{$percentage}}" votes="{{ $optionVotes }}"></progressbar>
                     </div>
             </div>
         @endforeach
@@ -40,7 +38,6 @@ $totalVotes= $poll->votes->count();
           data-sitekey="{{config('captcha.GOOGLE_RECAPTCHA_KEY')}}">
      </div>
 @endif
-<script src='https://www.google.com/recaptcha/api.js'></script>
 
 <div class="mt-3">
     <p>Total votes: {{ $totalVotes }}</p>
@@ -49,7 +46,14 @@ $totalVotes= $poll->votes->count();
 </form>
 
 <div class="mt-5">
-    @include('bitly.url')
+    <div class="row">
+        <div class="col-md-6">
+            @include('bitly.url')
+        </div>
+        <div class="col-md-6">
+            @include('inc.social-icons')
+        </div>
+    </div>
 </div>
 
 @endsection
