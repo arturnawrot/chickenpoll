@@ -27,10 +27,5 @@ class Poll extends Model
     {
         return $this->hasManyThrough(Answer::Class, Option::Class);
     }
-
-    // public function answers()
-    // {
-    //     return $this->hasMany(Answer::class);
-    // }
 }
 

@@ -16,4 +16,9 @@ class Answer extends Model
     {
         return $this->hasOne(Option::Class);
     }
+
+    public function poll()
+    {
+        return $this->hasOneThrough(Option::Class, Poll::Class);
+    }
 }

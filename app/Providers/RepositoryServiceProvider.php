@@ -20,7 +20,8 @@ class RepositoryServiceProvider extends ServiceProvider
             'Permission',
             'Poll',
             'Option',
-            'Answer'
+            'Answer',
+            'Shortlink'
         );
 
         foreach ($models as $model) {

@@ -168,6 +168,7 @@ return [
 
         Spatie\Permission\PermissionServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Shivella\Bitly\BitlyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -236,6 +237,7 @@ return [
          * Package aliasses...
          */
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Bitly' => Shivella\Bitly\Facade\Bitly::class,
 
     ],
 

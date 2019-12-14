@@ -108,6 +108,16 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
         $this->applyCriteria();
         return $this->makeModel()->findOrFail($id, $columns);
     }
+
+    /**
+     * @param $column
+     * @param $value
+     * @return mixed
+     */
+    public function exists($column, $value)
+    {
+        return $this->makeModel()->where($column, $value)->exists();
+    }
  
     /**
      * @param $attribute

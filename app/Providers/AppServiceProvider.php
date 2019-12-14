@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Validator;
 use App\Observers\UserObserver;
 use App\Models\User;
 
@@ -33,5 +34,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         User::observe(UserObserver::class);
+
+        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }
