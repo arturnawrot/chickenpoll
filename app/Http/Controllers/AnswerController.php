@@ -56,7 +56,7 @@ class AnswerController extends Controller
         $answer = $this->answer->create([
             'option_id' => $request->option_id,
             'ip' => $_SERVER['REMOTE_ADDR'],
-            'agent' => 'agent'
+            'agent' => $_SERVER['HTTP_USER_AGENT']
         ]);
 
         // Send a websocket

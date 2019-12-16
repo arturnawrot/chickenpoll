@@ -8,7 +8,7 @@
                         {{ option.content }}
                     </label>
                 </div>
-                <div class="mt-2 progress" style="padding-left:0;height: 45px;">
+                <div class="mt-3 progress" style="padding-left:0;height: 45px;">
                     <progressbar :id="option.id" :percentage="option.percentage" :votes="option.votes">
                     </progressbar>
                 </div>
@@ -47,3 +47,13 @@
         }
     }
 </script>
+
+<style scoped>
+    label {
+        color: #232425;
+        font-size: 1.15rem;
+    }
+    input {
+        margin-top: 8px;
+    }
+</style>

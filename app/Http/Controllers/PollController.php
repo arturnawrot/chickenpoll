@@ -28,7 +28,7 @@ class PollController extends Controller
         $poll = $this->poll->create([
             'title'     => $request->title,
             'ip'        => $_SERVER['REMOTE_ADDR'],
-            'agent'        => 'agent'
+            'agent'     => $_SERVER['HTTP_USER_AGENT']
         ]);
 
         foreach($request->options as $option)
