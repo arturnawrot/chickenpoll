@@ -11,6 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('head')
 </head>
 <body>
     <div id="app">
@@ -30,6 +31,8 @@
         </div>
     </div>
 </div>
+
+    @include('inc.footer')
 
     @yield('body-bottom')
     <script src="{{ asset('js/app.js') }}" defer></script>

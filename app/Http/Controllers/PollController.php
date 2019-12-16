@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\PollRepositoryInterface as Poll;
 use App\Repositories\Contracts\OptionRepositoryInterface as Option;
+use App\Http\Requests\StorePoll;
 
 class PollController extends Controller
 {
@@ -17,8 +18,10 @@ class PollController extends Controller
         $this->option = $option;
     }
 
-    public function store(Request $request)
+    public function store(StorePoll $request)
     {
+        $validated = $request->validated();
+
         $poll = $this->poll->create([
             'title'     => $request->title,
             'ip'        => $_SERVER['REMOTE_ADDR'],
@@ -28,6 +31,9 @@ class PollController extends Controller
 
         foreach($request->options as $option)
         {
+            if($request->option == null) {
+                continue;
+            }
             $option = $this->option->instance(['content' => $option]);
             $poll->options()->save($option);
         }

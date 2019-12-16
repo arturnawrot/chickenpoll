@@ -25,6 +25,7 @@ document.head.appendChild(recaptchaScript);
 
 Vue.component('example', require('./components/ExampleComponent.vue').default);
 Vue.component('shortlink', require('./components/Shortlink.vue').default);
+Vue.component('options', require('./components/Options.vue').default);
 Vue.component('progressbar', require('./components/ProgressBar.vue').default);
 
 /**

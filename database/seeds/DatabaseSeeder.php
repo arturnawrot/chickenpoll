@@ -35,6 +35,9 @@ class DatabaseSeeder extends Seeder
         $permissions['profile.view'] = Permission::create(['name' => 'profile.view']);
         $permissions['profile.update'] = Permission::create(['name' => 'profile.update']);
 
+        $permissions['telescope'] = Permission::create(['name' => 'telescope']);
+
+
         $roles['root']->syncPermissions($permissions);
 
         $users['root'] = User::Create([

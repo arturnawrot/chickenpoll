@@ -17,6 +17,8 @@ class Option extends Model
         'poll_id', 'content'
     ];
 
+    protected $appends = array('percentage', 'votes');
+
     public function poll()
     {
         return $this->belongsTo(Poll::Class);
@@ -25,5 +27,26 @@ class Option extends Model
     public function votes()
     {
         return $this->hasMany(Answer::Class);
+    }
+
+    public function getPercentageAttribute()
+    {
+        // @TODO Yeah, I know...
+        $poll = Poll::Where('id', $this->poll_id)->first();
+        $totalVotes = $poll->votes->count();
+        if($totalVotes === 0) {
+            return 0;
+        }
+        return $this->votes / $totalVotes * 100;
+    }
+
+    private function getPollModel($id)
+    {
+        app('App\Models\Poll')->listcity($id);
+    }
+
+    public function getVotesAttribute()
+    {
+        return $this->votes()->count();
     }
 }

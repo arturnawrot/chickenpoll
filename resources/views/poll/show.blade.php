@@ -11,26 +11,7 @@ $totalVotes= $poll->votes->count();
 <form action="{{ route('answers.store') }}" method="POST">
 @csrf()
 <div class="options my-5 px-1">
-        @foreach($poll->options as $option)
-            <div class="option mt-4">
-                    <div class="form-check">
-                        <input name="option_id" class="form-check-input" type="radio" value="{{ $option->id }}" id="{{ $option->id }}">
-                        <label class="form-check-label" for="{{ $option->id }}">
-                            {{ $option->content }}
-                        </label>
-                    </div>
-                    <div class="mt-2 progress" style="padding-left:0;height: 43px;">
-                        <?php
-                            $optionVotes = $option->votes->count();
-                            $percentage = 0;
-                            if($totalVotes != 0) {
-                                $percentage = $optionVotes / $totalVotes * 100;
-                            }
-                        ?>
-                        <progressbar percentage="{{$percentage}}" votes="{{ $optionVotes }}"></progressbar>
-                    </div>
-            </div>
-        @endforeach
+        <options :id="{{ $poll->id }}" :options="'{{ json_encode($poll->options) }}'"></options>
 </div>
 
 @if(config('captcha.GOOGLE_RECAPTCHA_KEY'))
@@ -40,17 +21,21 @@ $totalVotes= $poll->votes->count();
 @endif
 
 <div class="mt-3">
-    <p>Total votes: {{ $totalVotes }}</p>
+    <p><strong>Total votes: <span id="totalVotes">{{ $totalVotes }}</strong></span></p>
     <button type="submit" class="btn btn-lg btn-primary">Vote</button>
 </div>
 </form>
 
-<div class="mt-5">
+<div class="mt-5 share">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="link">Link to copy</label>
+                <input id="link" class="col-md-10 form-control" type="text" value="{{ url()->full() }}">
+            </div>
             @include('bitly.url')
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             @include('inc.social-icons')
         </div>
     </div>
