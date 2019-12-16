@@ -11,7 +11,7 @@ class Poll extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'title', 'ip', 'os', 'browser'
+        'title', 'ip', 'agent'
     ];
 
     protected $guarded = [
@@ -26,6 +26,11 @@ class Poll extends Model
     public function votes()
     {
         return $this->hasManyThrough(Answer::Class, Option::Class);
+    }
+
+    public function settings()
+    {
+        return $this->hasMany(Setting::Class);
     }
 }
 

@@ -21,8 +21,12 @@
                           </div>
                           <div class="checkboxes ml-1">
                               <div class="form-check">
-                                  <input type="checkbox" class="checkmark" id="exampleCheck1">
-                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                  <input name="settings[]" value="ip_checking" type="checkbox" class="checkmark" id="exampleCheck1" checked>
+                                  <label class="form-check-label" for="exampleCheck1">IP checking</label>
+                                </div>
+                                <div class="form-check mt-3">
+                                  <input name="settings[]" value="captcha" type="checkbox" class="checkmark" id="exampleCheck1">
+                                  <label class="form-check-label" for="exampleCheck1">Google Captcha</label>
                                 </div>
                           </div>
                           <div class="d-inline-block mt-4">

@@ -9,7 +9,7 @@ class Answer extends Model
     protected $table = 'answers';
 
     protected $fillable = [
-        'option_id', 'ip', 'os', 'browser'
+        'option_id', 'ip', 'agent'
     ];
 
     public function option()

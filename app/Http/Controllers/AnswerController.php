@@ -24,34 +24,39 @@ class AnswerController extends Controller
             'option_id' => 'required|integer'
         ];
 
-        // Check if captcha protection is enabled
-        // $rules['g-recaptcha-response'] = 'required|recaptcha';
-
         // Error messages
         $messages = [
             'option_id.required' => 'You did not select any option',
             'g-recaptcha-response.required' => 'Please complete the captcha',
         ];
 
+        $option = $this->option->find($request->option_id);
+        $settings = $option->poll->settings();
+
+        if($settings->where('value', 'captcha')->exists()) {
+            // Check if captcha protection is enabled
+            $rules['g-recaptcha-response'] = 'required|recaptcha';
+        }
+
         // Validate request
         $request->validate($rules, $messages);
 
         // Check the IP address to prevent multiple sumbissions
-        $option = $this->option->find($request->option_id);
-        $answers = $option->poll->votes;
-        // foreach($answers as $answer)
-        // {
-        //     if($answer->ip == $_SERVER['REMOTE_ADDR']) {
-        //         return redirect()->back()->with('alert-danger', 'You already voted :)');
-        //     }
-        // }
+        if($option->poll->settings()->where('value', 'ip_checking')->exists()) {
+            $answers = $option->poll->votes;
+            foreach($answers as $answer)
+            {
+                if($answer->ip == $_SERVER['REMOTE_ADDR']) {
+                    return redirect()->back()->with('alert-danger', 'You already voted :)');
+                }
+            }
+        }
 
         // Save the vote
         $answer = $this->answer->create([
             'option_id' => $request->option_id,
             'ip' => $_SERVER['REMOTE_ADDR'],
-            'os' => 'os',
-            'browser' => 'browser'
+            'agent' => 'agent'
         ]);
 
         // Send a websocket

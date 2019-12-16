@@ -21,7 +21,8 @@ class RepositoryServiceProvider extends ServiceProvider
             'Poll',
             'Option',
             'Answer',
-            'Shortlink'
+            'Shortlink',
+            'Setting'
         );
 
         foreach ($models as $model) {

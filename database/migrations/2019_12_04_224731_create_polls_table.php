@@ -17,8 +17,7 @@ class CreatePollsTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->string('ip');
-            $table->string('os');
-            $table->string('browser');
+            $table->string('agent');
             $table->timestamps();
         });
 
@@ -40,19 +39,18 @@ class CreatePollsTable extends Migration
                 ->on('options')
                 ->onDelete('cascade');
             $table->string('ip');
-            $table->string('os');
-            $table->string('browser');
+            $table->string('agent');
             $table->timestamps();
         });
 
-        Schema::create('poll_settings', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->unsignedBigInteger('poll_id');
             $table->foreign('poll_id')
                 ->references('id')
                 ->on('polls')
                 ->onDelete('cascade');
             $table->string('name');
-            $table->integer('value')->default(0);
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -66,7 +64,7 @@ class CreatePollsTable extends Migration
     {
         Schema::dropIfExists('answers');
         Schema::dropIfExists('options');
-        Schema::dropIfExists('poll_settings');
+        Schema::dropIfExists('settings');
         Schema::dropIfExists('polls');
     }
 }

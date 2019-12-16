@@ -14,10 +14,12 @@ $totalVotes= $poll->votes->count();
         <options :id="{{ $poll->id }}" :options="'{{ json_encode($poll->options) }}'"></options>
 </div>
 
-@if(config('captcha.GOOGLE_RECAPTCHA_KEY'))
-     <div class="g-recaptcha"
-          data-sitekey="{{config('captcha.GOOGLE_RECAPTCHA_KEY')}}">
-     </div>
+@if($poll->settings()->where('value', 'captcha')->exists())
+    @if(config('captcha.GOOGLE_RECAPTCHA_KEY'))
+        <div class="g-recaptcha"
+            data-sitekey="{{config('captcha.GOOGLE_RECAPTCHA_KEY')}}">
+        </div>
+    @endif
 @endif
 
 <div class="mt-3">
