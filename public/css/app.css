@@ -10647,6 +10647,10 @@ body {
   background-color: #f3f3f3;
 }
 
+body {
+  transform: scale(0.9);
+}
+
 .logo {
   max-width: 40px;
   max-height: 40px;

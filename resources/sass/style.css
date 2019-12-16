@@ -3,6 +3,11 @@
 html, body {
     background-color: #f3f3f3;
 }
+body{
+    -webkit-transform: scale(0.9);
+       -moz-transform: scale(0.9);
+            transform: scale(0.9);
+}
 .logo {
     max-width: 40px;
     max-height: 40px;

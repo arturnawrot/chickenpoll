@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-    <div class="container h-100">
+    <div class="container">
         <div class="row align-items-center">
             <div class="w-100 mt-5 pt-5">
                 <h1 class="text-center title">
