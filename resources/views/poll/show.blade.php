@@ -35,9 +35,12 @@ $totalVotes= $poll->votes->count();
                 <label for="link">Link to copy</label>
                 <input id="link" class="col-md-10 form-control" type="text" value="{{ url()->full() }}">
             </div>
-        </div>
-        <div class="col-md-6">
             @include('bitly.url')
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                @include('inc.social-icons')
+            </div>
         </div>
     </div>
 </div>

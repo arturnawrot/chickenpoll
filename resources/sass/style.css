@@ -186,5 +186,8 @@ a.btn-social,
 .share input {
   height: 45px;
   font-weight: 500;
-  background-color: #eceef1;
+  background-color: #ffffff;
+}
+.progress {
+  background-color: white;
 }
