@@ -63,7 +63,7 @@ class AnswerController extends Controller
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'agent' => $_SERVER['HTTP_USER_AGENT']
             ]);
-            if($isMultipleChoice === 0) {
+            if(!$isMultipleChoice) {
                 break;
             }
         }
