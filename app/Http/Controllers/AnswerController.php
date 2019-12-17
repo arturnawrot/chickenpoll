@@ -21,19 +21,21 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'option_id' => 'required|integer'
+            'options_id' => 'min:1|required'
         ];
 
         // Error messages
         $messages = [
-            'option_id.required' => 'You did not select any option',
+            'options_id.required' => 'You did not select any option',
             'g-recaptcha-response.required' => 'Please complete the captcha',
         ];
 
-        $option = $this->option->find($request->option_id);
-        $settings = $option->poll->settings();
+        $request->validate($rules, $messages);
 
-        if($settings->where('value', 'captcha')->exists()) {
+        $option = $this->option->find($request->options_id[0]);
+
+        $settings = $option->poll->settings;
+        if($settings->contains('value', 'captcha')) {
             // Check if captcha protection is enabled
             $rules['g-recaptcha-response'] = 'required|recaptcha';
         }
@@ -42,7 +44,7 @@ class AnswerController extends Controller
         $request->validate($rules, $messages);
 
         // Check the IP address to prevent multiple sumbissions
-        if($option->poll->settings()->where('value', 'ip_checking')->exists()) {
+        if($settings->contains('value', 'ip_checking')) {
             $answers = $option->poll->votes;
             foreach($answers as $answer)
             {
@@ -52,15 +54,22 @@ class AnswerController extends Controller
             }
         }
 
-        // Save the vote
-        $answer = $this->answer->create([
-            'option_id' => $request->option_id,
-            'ip' => $_SERVER['REMOTE_ADDR'],
-            'agent' => $_SERVER['HTTP_USER_AGENT']
-        ]);
+        // Save the vote(s)
+        $isMultipleChoice = $settings->contains('value', 'multiple_choice');
+        foreach($request->options_id as $option_id)
+        {
+            $answer = $this->answer->create([
+                'option_id' => $option_id,
+                'ip' => $_SERVER['REMOTE_ADDR'],
+                'agent' => $_SERVER['HTTP_USER_AGENT']
+            ]);
+            if($isMultipleChoice === 0) {
+                break;
+            }
+        }
 
         // Send a websocket
-        broadcast(new Vote($option));
+        broadcast(new Vote($this->option->find($request->options_id)));
 
         return redirect()->back();
     }

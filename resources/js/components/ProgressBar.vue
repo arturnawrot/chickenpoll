@@ -1,6 +1,6 @@
 <template>
     <div class="progress-bar" role="progressbar" :aria-valuenow="percentage" aria-valuemin="0" aria-valuemax="100" :style="{'width': percentage + '%' }">
-        <span :style="[!votes ? {'color': 'black'} : {'color': 'white;'}]">
+        <span :style="{'color': color}">
             {{ votes }} votes
         </span>
     </div>
@@ -8,10 +8,10 @@
 
 <script>
     export default {
-        props: ['percentage', 'votes'],
+        props: ['percentage', 'votes', 'color'],
         mounted() {
             console.log('Progress bar mounted.')
-        }
+        },
     }
 </script>
 

@@ -43,7 +43,7 @@ class PollController extends Controller
         if($request->settings) {
             foreach($request->settings as $setting)
             {
-                if(in_array($setting, array('captcha', 'ip_checking'))) {
+                if(in_array($setting, array('captcha', 'ip_checking', 'multiple_choice'))) {
                     $setting = $this->setting->instance(['name' => $setting, 'value' => $setting]);
                     $poll->settings()->save($setting);
                 }

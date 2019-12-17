@@ -19,13 +19,11 @@
                 axios.post('api/shorten', {
                     url: url
                 }).then((response) => {
-                    console.log(response);
                     this.url = response.data;
                 });
             }
         },
         created() {
-            console.log('Shortlenlink mounted.');
             this.getUrl(window.location.href);
         },
     }

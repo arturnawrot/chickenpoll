@@ -25,7 +25,7 @@ class StorePoll extends FormRequest
     {
         return [
             'title' => 'required|min:1',
-            'options' => 'required|min:1'
+            'options' => 'required|max:3'
         ];
     }
 }

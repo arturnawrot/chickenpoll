@@ -1973,30 +1973,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id', 'options'],
+  props: ['id', 'options', 'input_type'],
   created: function created() {
     var _this = this;
 
+    function isObject(obj) {
+      return obj != null && obj.constructor.name === "Object";
+    }
+
     this.options = JSON.parse(this.options);
-    window.Echo.channel('poll.' + this.id).listen('Vote', function (e) {
-      var pos = _this.options.map(function (x) {
-        return x.id;
-      }).indexOf(e.id);
+    window.Echo.channel('poll.' + this.id).listen('Vote', function (updatedOptions) {
+      for (var key in updatedOptions) {
+        if (!isObject(updatedOptions[key])) {
+          return;
+        }
 
-      _this.options[pos].votes = e.votes;
-      _this.options[pos].percentage = e.percentage;
-      var totalVotes = 0;
+        var e = updatedOptions[key];
 
-      for (var i = 0; i < _this.options.length; i++) {
-        totalVotes += _this.options[i].votes;
+        var pos = _this.options.map(function (x) {
+          return x.id;
+        }).indexOf(e.id);
+
+        _this.options[pos].votes = e.votes;
+        _this.options[pos].percentage = e.percentage;
+        var totalVotes = 0;
+
+        for (var i = 0; i < _this.options.length; i++) {
+          totalVotes += _this.options[i].votes;
+        }
+
+        _this.options.forEach(function (option) {
+          option.percentage = option.votes / totalVotes * 100;
+        });
+
+        var span = document.getElementById("totalVotes");
+        span.textContent = totalVotes;
       }
-
-      _this.options.forEach(function (option) {
-        option.percentage = option.votes / totalVotes * 100;
-      });
-
-      var span = document.getElementById("totalVotes");
-      span.textContent = totalVotes;
     });
   }
 });
@@ -2021,7 +2033,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['percentage', 'votes'],
+  props: ['percentage', 'votes', 'color'],
   mounted: function mounted() {
     console.log('Progress bar mounted.');
   }
@@ -2060,13 +2072,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('api/shorten', {
         url: url
       }).then(function (response) {
-        console.log(response);
         _this.url = response.data;
       });
     }
   },
   created: function created() {
-    console.log('Shortlenlink mounted.');
     this.getUrl(window.location.href);
   }
 });
@@ -49701,7 +49711,11 @@ var render = function() {
               _c("div", { staticClass: "form-check" }, [
                 _c("input", {
                   staticClass: "form-check-input",
-                  attrs: { id: option.id, name: "option_id", type: "radio" },
+                  attrs: {
+                    id: "input" + option.id,
+                    name: "options_id[]",
+                    type: _vm.input_type
+                  },
                   domProps: { value: option.id }
                 }),
                 _vm._v(" "),
@@ -49730,6 +49744,7 @@ var render = function() {
                 [
                   _c("progressbar", {
                     attrs: {
+                      color: [!option.votes ? "black" : "white"],
                       id: option.id,
                       percentage: option.percentage,
                       votes: option.votes
@@ -49780,11 +49795,9 @@ var render = function() {
       }
     },
     [
-      _c(
-        "span",
-        { style: [!_vm.votes ? { color: "black" } : { color: "white;" }] },
-        [_vm._v("\n        " + _vm._s(_vm.votes) + " votes\n    ")]
-      )
+      _c("span", { style: { color: _vm.color } }, [
+        _vm._v("\n        " + _vm._s(_vm.votes) + " votes\n    ")
+      ])
     ]
   )
 }

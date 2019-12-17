@@ -49,4 +49,11 @@ class Option extends Model
     {
         return $this->votes()->count();
     }
+
+    public function toArray() {
+        $data = parent::toArray();
+        $data['votes'] = $this->votes;
+        $data['percentage'] = $this->percentage;
+        return $data;
+    }
 }

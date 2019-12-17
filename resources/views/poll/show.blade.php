@@ -1,7 +1,3 @@
-<?php 
-$totalVotes= $poll->votes->count();
-?>
-
 @extends('layouts.app')
 
 @section('title', $poll->title)
@@ -11,7 +7,12 @@ $totalVotes= $poll->votes->count();
 <form action="{{ route('answers.store') }}" method="POST">
 @csrf()
 <div class="options my-5 px-1">
-        <options :id="{{ $poll->id }}" :options="'{{ json_encode($poll->options) }}'"></options>
+        <options
+            :id="{{ $poll->id }}"
+            :options="'{{ json_encode($poll->options) }}'"
+            :input_type="[{{ (int)$poll->settings()->where('value', 'multiple_choice')->exists() }} == 1 ? 'checkbox' : 'radio']"
+        >
+        </options>
 </div>
 
 @if($poll->settings()->where('value', 'captcha')->exists())
@@ -23,7 +24,7 @@ $totalVotes= $poll->votes->count();
 @endif
 
 <div class="mt-3">
-    <p><strong>Total votes: <span id="totalVotes">{{ $totalVotes }}</strong></span></p>
+    <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</strong></span></p>
     <button type="submit" class="btn btn-lg btn-primary">Vote</button>
 </div>
 </form>

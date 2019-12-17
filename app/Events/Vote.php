@@ -9,22 +9,23 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\Option;
 
 class Vote implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $option;
+    public $options;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Option $option)
+    public function __construct(Collection $options)
     {
-        $this->option = $option;
+        $this->options = $options;
     }
 
     /**
@@ -34,7 +35,7 @@ class Vote implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('poll.'.$this->option->poll->id);
+        return new Channel('poll.'.$this->options[0]->poll->id);
     }
 
     /**
@@ -44,10 +45,15 @@ class Vote implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return [
-            'id' => $this->option->id,
-            'votes' => $this->option->votes,
-            'percentage' => $this->option->percentage
-        ];
+        $options = [];
+        foreach($this->options as $option)
+        {
+            $options[] = [
+                'id' => $option->id,
+                'votes' => $option->votes,
+                'percentage' => $option->percentage
+            ];
+        }
+        return $options;
     }
 }
