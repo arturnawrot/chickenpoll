@@ -2,5 +2,6 @@
     "/js/admin/app.js": "/js/admin/app.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/admin/app.css": "/css/admin/app.css"
+    "/css/admin/app.css": "/css/admin/app.css",
+    "/js/popper.js": "/js/popper.js"
 }
