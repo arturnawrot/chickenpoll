@@ -17,11 +17,17 @@ class RepositoryServiceProvider extends ServiceProvider
             'User',
             'Profile',
             'Role',
-            'Permission'
+            'Permission',
+            'Poll',
+            'Option',
+            'Answer',
+            'Shortlink',
+            'Setting',
+            'Report',
         );
 
         foreach ($models as $model) {
             $this->app->bind("App\Repositories\Contracts\\{$model}RepositoryInterface", "App\Repositories\Eloquent\\{$model}Repository");
-        }     
+        }
     }
 }

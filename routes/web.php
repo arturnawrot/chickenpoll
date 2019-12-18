@@ -1,6 +1,5 @@
 <?php
-
-Route::view('/', 'index');
+Route::view('/', 'index')->name('index');
 
 Auth::routes();
 
@@ -23,4 +22,28 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'ad
         Route::patch('/{id}', 'RoleController@update')->name('admin.roles.update');
         Route::delete('/{id}', 'RoleController@destroy')->name('admin.roles.destroy');
     });
+
+    Route::group(['prefix' => 'poll'], function () {
+        Route::get('/', 'PollController@index')->name('admin.polls.index');
+        Route::get('/{id}', 'PollController@edit')->name('admin.polls.edit');
+        Route::patch('/{id}', 'PollController@update')->name('admin.polls.update');
+        Route::delete('/{id}', 'PollController@destroy')->name('admin.polls.destroy');
+    });
+
+    Route::group(['prefix' => 'report'], function () {
+        Route::get('/', 'ReportController@index')->name('admin.reports.index');
+        Route::get('/{id}', 'ReportController@show')->name('admin.reports.show');
+        Route::delete('/', 'ReportController@destroy')->name('admin.reports.destroy');
+    });
 });
+
+Route::get('/sitemap.xml', 'SitemapController@index');
+Route::get('/sitemaps/{id}.xml', 'SitemapController@show')->name('sitemaps.polls');
+
+Route::get('/report/{id}', 'ReportController@index')->name('report.index');
+Route::post('/report/{id}', 'ReportController@store')->name('report.store');
+
+Route::post('/add', 'PollController@store')->name('polls.store');
+Route::get('/{id}', 'PollController@show')->name('polls.show');
+
+Route::post('/vote', 'AnswerController@store')->name('answers.store');

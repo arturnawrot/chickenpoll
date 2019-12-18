@@ -47,5 +47,9 @@
         "minimatch": "^3.0.4",
         "require-dir": "^1.2.0",
         "run-sequence": "^2.2.1"
+    },
+    "dependencies": {
+        "laravel-echo": "^1.6.1",
+        "socket.io-client": "^2.3.0"
     }
 }

@@ -14,17 +14,37 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
+          @can('user.view')
           <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.users.index') }}">
                   <span class="menu-title">Users</span>
                   <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
           </li>
+          @endcan
+          @can('role.view')
           <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.roles.index') }}">
                   <span class="menu-title">Roles</span>
                   <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
           </li>
+          @endcan
+          @can('poll.view')
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.polls.index') }}">
+                  <span class="menu-title">Polls</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
+          @endcan
+          @can('report.view')
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.reports.index') }}">
+                  <span class="menu-title">Reports</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
+          @endcan
       </ul>
 </nav>

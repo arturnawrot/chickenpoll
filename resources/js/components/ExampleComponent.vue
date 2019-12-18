@@ -18,6 +18,10 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+            // window.Echo.channel('test')
+            // .listen('test', (e) => {
+            //     console.log(e);
+            // });
         }
     }
 </script>

@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $this->authorize('viewAny');
+        $this->middleware(['permission:user.view']);
         return view('admin.user.index', ['users' => $this->user->sortable()->paginate(50)]);
     }
 
@@ -59,6 +59,7 @@ class UserController extends Controller
 
         $this->authorize('update', $user);
 
+        // @TODO Not clean
         if (Gate::denies('update-role', $role)) {
             abort(403);
         }

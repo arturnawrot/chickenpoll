@@ -20,7 +20,7 @@ class RolePolicy
      */
     public function view(User $user, Role $role)
     {
-        // return $user->hasPermissionTo('role.view');
+        return $user->hasPermissionTo('role.view');
     }
 
     /**
@@ -31,7 +31,7 @@ class RolePolicy
      */
     public function create(User $user, Role $role)
     {
-        return $user->hasPermissionTo('role.create') 
+        return $user->hasPermissionTo('role.create')
         && ($user->highestRole()->authority >= $role->authority);
     }
 
@@ -44,7 +44,7 @@ class RolePolicy
      */
     public function delete(User $user, Role $role)
     {
-        return $user->hasPermissionTo('role.delete') 
+        return $user->hasPermissionTo('role.delete')
         && ($user->highestRole()->authority >= $role->authority);
     }
 
