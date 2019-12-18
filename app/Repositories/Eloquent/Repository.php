@@ -149,6 +149,10 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface {
         return $model->fill($data);
     }
  
+    public function withCount($attribute)
+    {
+        return $this->model->withCount($attribute);
+    }
     /**
      * @return $this
      */

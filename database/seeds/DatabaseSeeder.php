@@ -35,6 +35,10 @@ class DatabaseSeeder extends Seeder
         $permissions['profile.view'] = Permission::create(['name' => 'profile.view']);
         $permissions['profile.update'] = Permission::create(['name' => 'profile.update']);
 
+        $permissions['poll.view'] = Permission::create(['name' => 'poll.view']);
+        $permissions['poll.update'] = Permission::create(['name' => 'poll.update']);
+        $permissions['poll.delete'] = Permission::create(['name' => 'poll.delete']);
+
         $permissions['telescope'] = Permission::create(['name' => 'telescope']);
 
 
@@ -48,8 +52,8 @@ class DatabaseSeeder extends Seeder
 
         $users['root']->assignRole($roles['root']);
 
-        factory(App\Models\User::class, 100)->create()->each(function ($user) {
-            $user->assignRole('user');
-        });;
+        // factory(App\Models\User::class, 10)->create()->each(function ($user) {
+        //     $user->assignRole('user');
+        // });;
     }
 }

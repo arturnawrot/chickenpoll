@@ -47,10 +47,6 @@
                       </div>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     </form>
-
-                                
-
-
             </div>
         </div>
     </div>

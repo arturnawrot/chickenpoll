@@ -19,6 +19,7 @@ class CreatePollsTable extends Migration
             $table->string('ip');
             $table->string('agent');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('options', function (Blueprint $table) {
@@ -53,6 +54,17 @@ class CreatePollsTable extends Migration
             $table->string('value');
             $table->timestamps();
         });
+
+        Schema::create('reports', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('poll_id');
+            $table->text('content');
+            $table->string('email');
+            $table->string('ip');
+            $table->string('agent');
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -65,6 +77,7 @@ class CreatePollsTable extends Migration
         Schema::dropIfExists('answers');
         Schema::dropIfExists('options');
         Schema::dropIfExists('settings');
+        Schema::dropIfExists('reports');
         Schema::dropIfExists('polls');
     }
 }

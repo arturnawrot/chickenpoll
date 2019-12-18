@@ -26,5 +26,17 @@
                   <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.polls.index') }}">
+                  <span class="menu-title">Polls</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.reports.index') }}">
+                  <span class="menu-title">Reports</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
       </ul>
 </nav>

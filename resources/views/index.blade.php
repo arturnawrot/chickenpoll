@@ -20,22 +20,11 @@
                                 </div>
                           </div>
                           <div class="checkboxes ml-1">
-                              <div class="form-check">
-                                  <input name="settings[]" value="ip_checking" type="checkbox" class="checkmark" id="exampleCheck1" checked>
-                                  <label class="form-check-label" for="exampleCheck1">IP checking</label>
-                                </div>
-                                <div class="form-check mt-3">
-                                  <input name="settings[]" value="captcha" type="checkbox" class="checkmark" id="2">
-                                  <label class="form-check-label" for="2">Google Captcha</label>
-                                </div>
-                                <div class="form-check mt-3">
-                                  <input name="settings[]" value="multiple_choice" type="checkbox" class="checkmark" id="3">
-                                  <label class="form-check-label" for="3">Multiple choice</label>
-                                </div>
+                              @include('inc.checkboxes')
                           </div>
                           <div class="d-inline-block mt-4">
                               <button type="submit" class="btn btn-lg btn-primary">Create</button>
-                              <button type="button" class="ml-3 btn btn-lg btn-primary">Save draft</button>
+                              <!-- <button type="button" class="ml-3 btn btn-lg btn-primary">Save draft</button> -->
                           </div>
                   </form>
 @endsection

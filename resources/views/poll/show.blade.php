@@ -45,5 +45,8 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('footer')
+<span><a class="report-link" target="_blank" rel="noopener noreferrer" href="{{ route('report.index', $poll->id) }}">Report it</a></span>
 @endsection
