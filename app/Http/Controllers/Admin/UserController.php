@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $this->authorize('viewAny');
+        $this->middleware(['permission:user.view']);
         return view('admin.user.index', ['users' => $this->user->sortable()->paginate(50)]);
     }
 

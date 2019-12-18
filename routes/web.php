@@ -1,6 +1,5 @@
 <?php
-
-Route::view('/', 'index');
+Route::view('/', 'index')->name('index');
 
 Auth::routes();
 
@@ -37,6 +36,9 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'ad
         Route::delete('/', 'ReportController@destroy')->name('admin.reports.destroy');
     });
 });
+
+Route::get('/sitemap.xml', 'SitemapController@index');
+Route::get('/sitemaps/{id}.xml', 'SitemapController@show')->name('sitemaps.polls');
 
 Route::get('/report/{id}', 'ReportController@index')->name('report.index');
 Route::post('/report/{id}', 'ReportController@store')->name('report.store');

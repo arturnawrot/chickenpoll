@@ -14,7 +14,9 @@
                         <th>@sortablelink('votes_count', 'votes')</th>
                         <th>@sortablelink('reports_count', 'reports')</th>
                         <th>@sortablelink('created_at')</th>
+                        @can('poll.edit')
                         <th></th>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody>
@@ -24,7 +26,9 @@
                                 <td> {{ $poll->votes_count }} </td>
                                 <td> {{ $poll->reports_count }} </td>
                                 <td> {{ $poll->created_at }} </td>
+                                @can('poll.delete')
                                 <td><a href="{{ route('admin.polls.edit', $poll->id) }}" class="btn btn-warning btn-fw">Edit</a></td>
+                                @endcan
                             </tr>
                         @endforeach
                     </tbody>

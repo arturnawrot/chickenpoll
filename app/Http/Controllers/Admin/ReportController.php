@@ -24,6 +24,7 @@ class ReportController extends Controller
      */
     public function index()
     {
+        $this->middleware(['permission:report.view']);
         $polls = $this->poll->makeModel()
             ->whereHas('reports')
             ->withCount('votes')
@@ -40,6 +41,7 @@ class ReportController extends Controller
      */
     public function show($id)
     {
+        $this->middleware(['permission:report.view']);
         return view('admin.reports.show', ['poll' => $this->poll->find($id)]);
     }
 
@@ -52,6 +54,7 @@ class ReportController extends Controller
      */
     public function destroy(Request $request)
     {
+        $this->middleware(['permission:report.delete']);
         foreach($request->reports as $id)
         {
             $this->report->find($id)->delete();

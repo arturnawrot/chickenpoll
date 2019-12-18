@@ -22,6 +22,7 @@ class PollController extends Controller
      */
     public function index()
     {
+        $this->middleware(['permission:poll.view']);
         return view('admin.poll.index', ['polls' => $this->poll->withCount('votes')->sortable()->paginate(50)]);
     }
 
@@ -33,6 +34,7 @@ class PollController extends Controller
      */
     public function edit($id)
     {
+        $this->middleware(['permission:poll.update']);
         $poll = $this->poll->find($id);
         // $this->authorize('view', $user);
 
@@ -50,6 +52,7 @@ class PollController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->middleware(['permission:poll.update']);
         $poll = $this->poll->find($id);
         $pollOptions = $poll->options()->get();
 
@@ -74,6 +77,7 @@ class PollController extends Controller
      */
     public function destroy($id)
     {
+        $this->middleware(['permission:poll.delete']);
         $poll = $this->poll->find($id);
         $poll->delete();
 
