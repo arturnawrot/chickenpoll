@@ -3,11 +3,11 @@ Route::view('/', 'index')->name('index');
 
 Auth::routes();
 
-// {profile} is an username
+// {profile} is an username.
 // "me" is an exception which returns username of the current authenticated user.
 Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show');
 
-Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'admin', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin-dashboard');
 
     Route::group(['prefix' => 'user'], function () {
