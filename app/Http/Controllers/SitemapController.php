@@ -19,7 +19,9 @@ class SitemapController extends Controller
     public function index()
     {
         $polls = $this->poll->get();
-        $perPage = ceil($polls->count() / $this->limit);
+        $count = $polls->count();
+        $perPage = ceil($count / $this->limit);
+
         foreach(range(1, $perPage) as $sitemap)
         {
             Sitemap::addSitemap(route('sitemaps.polls', $sitemap));
