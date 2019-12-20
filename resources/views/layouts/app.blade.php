@@ -36,5 +36,14 @@
 
     @yield('body-bottom')
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139361241-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139361241-2');
+</script>
 </body>
 </html>
