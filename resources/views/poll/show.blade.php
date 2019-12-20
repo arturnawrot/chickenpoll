@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $poll->title)
+<?php $title = 'ChickenPoll.com | '.$poll->title; ?>
+@section('title', $title)
+@section('title-display', $poll->title)
 @section('description', 'Real-time, instant, ad-free and simple')
 
 @section('head')
