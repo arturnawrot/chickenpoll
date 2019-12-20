@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Create a new poll')
-@section('description', 'Real-time, instant, ad-free and simple')
-
-@section('head')
 <?php
 $title = "ChickenPoll.com | Real time polls";
 $description = "No registration required. Real-time, instant, ad-free and simple";
 ?>
+
+@section('title', $title)
+@section('description', 'Real-time, instant, ad-free and simple')
+
+@section('head')
 <meta property="og:title" content="{{ $title }}"/>
 <meta property="og:site_name" content="{{ $description }}" />
 <meta property="og:type" content="website" />
