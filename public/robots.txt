@@ -1,2 +1,9 @@
+# Group 1
+User-agent: Googlebot
+Disallow: /admin/
+
+# Group 2
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://chickenpoll.com/sitemap.xml
