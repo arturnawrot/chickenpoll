@@ -7,7 +7,6 @@
 <?php
 $title = "ChickenPoll.com | Real time polls";
 $description = "No registration required. Real-time, instant, ad-free and simple";
-$options = $poll->options->implode('content', ' - ');
 ?>
 <meta property="og:title" content="{{ $title }}"/>
 <meta property="og:site_name" content="{{ $description }}" />
