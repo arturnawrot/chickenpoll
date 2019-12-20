@@ -8,10 +8,7 @@
 
 <script>
     export default {
-        props: ['percentage', 'votes', 'color'],
-        mounted() {
-            console.log('Progress bar mounted.')
-        },
+        props: ['percentage', 'votes', 'color']
     }
 </script>
 

@@ -22,7 +22,7 @@
         props: [
             'id', 'options', 'input_type'
         ],
-        created() {
+        mounted() {
             function isObject(obj)
             {
                 return obj != null && obj.constructor.name === "Object";
