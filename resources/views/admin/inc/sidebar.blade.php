@@ -46,5 +46,13 @@
               </a>
           </li>
           @endcan
+          @can('visitor.view')
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.visitors.index') }}">
+                  <span class="menu-title">Stats</span>
+                  <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+          </li>
+          @endcan
       </ul>
 </nav>

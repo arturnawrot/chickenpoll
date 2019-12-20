@@ -35,6 +35,10 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
         Route::get('/{id}', 'ReportController@show')->name('admin.reports.show');
         Route::delete('/', 'ReportController@destroy')->name('admin.reports.destroy');
     });
+
+    Route::group(['prefix' => 'visitor'], function () {
+        Route::get('/', 'VisitorController@index')->name('admin.visitors.index');
+    });
 });
 
 Route::get('/sitemap.xml', 'SitemapController@index');

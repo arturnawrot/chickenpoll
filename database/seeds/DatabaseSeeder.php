@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
         $permissions['report.show'] = Permission::create(['name' => 'report.show']);
         $permissions['report.delete'] = Permission::create(['name' => 'report.delete']);
 
+        $permissions['visitor.view'] = Permission::create(['name' => 'visitor.view']);
+
         $permissions['telescope'] = Permission::create(['name' => 'telescope']);
 
 
