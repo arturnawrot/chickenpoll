@@ -17,7 +17,7 @@
     <div id="app">
     <div class="container justify-content-center">
         <div class="row align-items-center">
-            <div class="w-100 mt-1 pt-5">
+            <div class="w-100">
                 <h1 class="text-center title">
                 <span style="color:#404346;">Easy</span><span style="color:#ef145b;">Poll</span>
                 </h1>
