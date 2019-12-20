@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,7 +19,7 @@
         <div class="row align-items-center">
             <div class="w-100">
                 <h1 class="text-center title">
-                <span style="color:#404346;">Easy</span><span style="color:#ef145b;">Poll</span>
+                <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
                 </h1>
                 <div class="mt-5 col-lg-10">
                     <h2 class="display">@yield('title')</h2>
