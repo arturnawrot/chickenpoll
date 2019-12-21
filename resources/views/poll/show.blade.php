@@ -6,23 +6,8 @@
 @section('description', 'Real-time, instant, ad-free and simple')
 
 @section('head')
-<?php $options = $poll->options->implode('content', ' - '); ?>
-<meta property="og:title" content="{{ $poll->title }}"/>
-<meta property="og:site_name" content="Chicken Poll" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{ url()->full() }}" />
-<meta property="og:description" content="Vote! {{ $options }}" />
-<meta property="og:image" content="{{ asset('images/web.png') }}" />
-<meta name="title" content="{{ $poll->title }}" />
-<meta name="type" content="website" />
-<meta name="url" content="{{ url()->full() }}" />
-<meta name="description" content="Vote! {{ $options }}" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@PollChicken" />
-<meta name="twitter:creator" content="@PollChicken" />
-<meta name="twitter:title" content="{{ $poll->title }}" />
-<meta name="twitter:description" content="Vote! {{ $options }}" />
-<meta name="twitter:image" content="{{ asset('images/web.png') }}" />
+<?php $description = "Vote! ".$poll->options->implode('content', ' - '); ?>
+@include('inc.meta')
 @endsection
 
 @section('content')
