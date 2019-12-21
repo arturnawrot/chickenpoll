@@ -11,7 +11,7 @@
                 <div class="mt-3 progress" style="padding-left:0;height: 45px;">
                     <progressbar :style="[!option.votes ? {'color': 'black', 'margin-left': '20px'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
                     </progressbar>
-                    <div class="progress-bar per px-2">
+                    <div v-if="option.votes > 0" class="progress-bar per px-2">
                         {{ Math.round(option.percentage * 10) / 10 }}%
                     </div>
                 </div>
