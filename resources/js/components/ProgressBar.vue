@@ -13,9 +13,3 @@
         props: ['percentage', 'votes', 'color'],
     }
 </script>
-
-<style scoped>
-span {
-    margin-left: 1px;
-}
-</style>
