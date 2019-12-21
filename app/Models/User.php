@@ -7,10 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasRoles, Sortable;
+    use CanResetPassword, Notifiable, HasRoles, Sortable;
 
     protected $guard_name = 'web';
 

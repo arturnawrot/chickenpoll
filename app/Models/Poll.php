@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Poll extends Model
 {
-    use Sortable, SoftDeletes;
+    use Sortable, SoftDeletes, HasSlug;
 
     protected $table = 'polls';
 
@@ -46,6 +48,17 @@ class Poll extends Model
     public function reports()
     {
         return $this->hasMany(Report::Class);
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50);
     }
 }
 

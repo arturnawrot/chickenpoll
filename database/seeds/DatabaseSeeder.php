@@ -52,8 +52,8 @@ class DatabaseSeeder extends Seeder
 
         $users['root'] = User::Create([
             'name' => 'root',
-            'email' => 'root@root.com',
-            'password' => bcrypt('1234511')
+            'email' => 'artur.programista2@gmail.com',
+            'password' => bcrypt('Zxc1234511!')
         ]);
 
         $users['root']->assignRole($roles['root']);
