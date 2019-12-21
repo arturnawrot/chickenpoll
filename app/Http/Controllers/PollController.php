@@ -51,7 +51,7 @@ class PollController extends Controller
         }
 
 
-        return redirect()->route('polls.show', $poll->id);
+        return redirect()->route('polls.show', $poll->slug);
     }
 
     public function show($id)
