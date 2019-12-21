@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "facebook/webdriver": "^1.7",
         "fideloper/proxy": "^4.0",
         "jenssegers/agent": "^2.6",
         "kyslik/column-sortable": "^6.0",

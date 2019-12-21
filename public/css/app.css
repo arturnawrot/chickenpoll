@@ -10725,8 +10725,17 @@ input::-webkit-input-placeholder {
 }
 
 .progress-bar {
-  font-size: 1.06rem;
   background-color: #ff4480;
+}
+
+.progress-bar,
+.per {
+  font-size: 1.06rem;
+}
+
+.per {
+  color: white;
+  background-color: #ff588e;
 }
 
 a.btn-social,

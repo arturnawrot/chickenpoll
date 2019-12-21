@@ -61,8 +61,15 @@ input::-webkit-input-placeholder {
     font-weight: bold;
 }
 .progress-bar {
-    font-size: 1.06rem;
     background-color: #ff4480;
+}
+.progress-bar, .per {
+    font-size: 1.06rem;
+
+}
+.per {
+    color: white;
+    background-color: #ff588e;
 }
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
