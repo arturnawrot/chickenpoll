@@ -56,7 +56,7 @@ class PollController extends Controller
 
     public function show($id)
     {
-        $poll = $this->poll->find($id);
+        $poll = $this->poll->makeModel()->where('id', $id)->orWhere('slug', $id)->firstOrFail();
         return view('poll.show', ['poll' => $poll]);
     }
 
