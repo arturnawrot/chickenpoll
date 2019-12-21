@@ -9,7 +9,7 @@
                     </label>
                 </div>
                 <div class="mt-3 progress" style="padding-left:0;height: 45px;">
-                    <progressbar :color="[!option.votes ? 'black' : 'white']" :id="option.id" :percentage="option.percentage" :votes="option.votes">
+                    <progressbar :style="[!option.votes ? {'color': 'black', 'margin-left': '20px'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
                     </progressbar>
                 </div>
             </div>
@@ -57,7 +57,6 @@
                     var span = document.getElementById("totalVotes");
                     span.textContent = totalVotes;
                 }
-
             });
         }
     }
