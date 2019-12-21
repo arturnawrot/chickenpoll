@@ -26,10 +26,11 @@ class AnswerController extends Controller
 
         // Error messages
         $messages = [
-            'options_id.required' => 'You did not select any option',
+            'options_id.required' => 'You have not selected any option(s)',
             'g-recaptcha-response.required' => 'Please complete the captcha',
         ];
 
+        // Validate request (To check if `option_id` exists)
         $request->validate($rules, $messages);
 
         $option = $this->option->find($request->options_id[0]);
@@ -40,7 +41,7 @@ class AnswerController extends Controller
             $rules['g-recaptcha-response'] = 'required|recaptcha';
         }
 
-        // Validate request
+        // Validate request again (After checking if captcha is enabled)
         $request->validate($rules, $messages);
 
         // Check the IP address to prevent multiple sumbissions
@@ -49,7 +50,7 @@ class AnswerController extends Controller
             foreach($answers as $answer)
             {
                 if($answer->ip == $_SERVER['REMOTE_ADDR']) {
-                    return redirect()->back()->with('alert-danger', 'You already voted :)');
+                    return redirect()->back()->with('alert-danger', 'You have already voted :)');
                 }
             }
         }
@@ -71,6 +72,6 @@ class AnswerController extends Controller
         // Send a websocket
         broadcast(new Vote($this->option->find($request->options_id)));
 
-        return redirect()->back();
+        return redirect()->back()->with('alert-success', 'Thank you for your vote!');
     }
 }
