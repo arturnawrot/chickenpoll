@@ -3,7 +3,7 @@
         <span :style="{'color': color}">
             <div v-if="percentage > 8">{{votes}}<span v-if="votes > 1"> votes</span><span v-else> vote</span>
             </div>
-            <div v-else>{{ votes }}</div>
+            <div v-else-if="percentage > 3">{{ votes }}</div>
         </span>
     </div>
 </template>
