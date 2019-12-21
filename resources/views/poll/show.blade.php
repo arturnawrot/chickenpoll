@@ -44,10 +44,10 @@
                 <label for="link">Link with a friendly slug</label>
                 <input id="link" class="col-md-10 form-control" type="text" value="{{ url('').'/'.$poll->slug }}">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="link">Link with a numeric ID</label>
                 <input id="link" class="col-md-10 form-control" type="text" value="{{ url('').'/'.$poll->id }}">
-            </div>
+            </div> -->
         </div>
         <div class="row mt-3">
             <div class="col">
