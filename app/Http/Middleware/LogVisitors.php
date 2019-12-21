@@ -25,7 +25,7 @@ class LogVisitors
             'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? '0',
             'method' => $_SERVER['REQUEST_METHOD'] ?? '0',
             'url' => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?? '0',
-            'language' => substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) ?? '0',
+            'language' => isset($_SERVER["HTTP_ACCEPT_LANGUAGE"]) ? substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,2) : '0',
             'created_at' => now(),
             'agent' => new \Jenssegers\Agent\Agent()
         ];
