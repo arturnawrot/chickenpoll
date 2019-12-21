@@ -16,6 +16,6 @@
 
 <style scoped>
 span {
-    margin-left: 5px;
+    margin-left: 1px;
 }
 </style>
