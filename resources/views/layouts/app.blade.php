@@ -18,9 +18,9 @@
     <div class="container justify-content-center">
         <div class="row align-items-center">
             <div class="w-100">
-                <h1 class="text-center title">
+                <h1 class="text-center title"><a href="/" target="_blank">
                 <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
-                </h1>
+                </a></h1>
                 <div class="mt-5 col-lg-10">
                     <h2 class="display">@yield('title-display')</h2>
                     <p class="lead">@yield('description')</p>
