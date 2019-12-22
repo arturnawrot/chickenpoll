@@ -1,18 +1,18 @@
 <template>
     <div>
-        <div v-for="option in options">
+        <div v-for="option in options" class="container-fluid" style="padding: 0; margin: 0; width:95%;">
             <div v-if="option" class="option mt-4">
-                <div class="form-check">
+                <div class="form-check form-check-inline">
                     <input :id="'input'+option.id" :value="option.id" name="options_id[]" class="form-check-input" :type="input_type">
-                    <label :for="option.id" class="form-check-label">
+                    <label :for="'input'+option.id" class="form-check-label">
                         {{ option.content }}
                     </label>
                 </div>
-                <div class="mt-3 progress" style="padding-left:0;height: 45px;">
-                    <progressbar :style="[!option.votes ? {'color': 'black', 'margin-left': '20px'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
-                    </progressbar>
-                    <div v-if="option.votes > 0" class="progress-bar per px-2">
-                        {{ Math.round(option.percentage * 10) / 10 }}%
+                <!-- tttttt -->
+                <div class="progressContainer form-group">
+                    <div class="mt-3 progress" style="padding-left:0;height: 45px;">
+                        <progressbar :style="[!option.votes ? {'color': 'black', 'margin-left': '20px'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
+                        </progressbar>
                     </div>
                 </div>
             </div>

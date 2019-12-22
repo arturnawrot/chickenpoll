@@ -5,6 +5,7 @@
             </div>
             <div v-else-if="percentage > 3">{{ votes }}</div>
         </span>
+        <span class="percentage">{{ Math.round(percentage * 10) / 10 }}%</span>
     </div>
 </template>
 

@@ -65,11 +65,6 @@ input::-webkit-input-placeholder {
 }
 .progress-bar, .per {
     font-size: 1.06rem;
-
-}
-.per {
-    color: white;
-    background-color: #ff588e;
 }
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
@@ -205,4 +200,15 @@ a.btn-social,
 }
 .report-link {
     color: #ef145b;
+}
+.progressContainer span.pull-left{
+    margin-top:2px;
+}
+.progressContainer .progress {
+    margin-left: 0px;
+}
+.percentage {
+    position: absolute;
+    right: -14px;
+    color: #404346;
 }
