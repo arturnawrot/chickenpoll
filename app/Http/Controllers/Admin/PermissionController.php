@@ -8,6 +8,17 @@ use App\Models\Permission;
 
 class PermissionController extends Controller
 {
+    private $permission;
+
+    function __construct()
+    {
+        $this->permission = $permission;
+    }
+
+    public function sync()
+    {
+
+    }
  /**
      * Display a listing of the resource.
      *

@@ -36,8 +36,17 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
         Route::delete('/', 'ReportController@destroy')->name('admin.reports.destroy');
     });
 
+    Route::group(['prefix' => 'answer'], function () {
+        Route::patch('/{id}', 'AnswerController@update')->name('admin.answers.update');
+    });
+
     Route::group(['prefix' => 'visitor'], function () {
         Route::get('/', 'VisitorController@index')->name('admin.visitors.index');
+    });
+
+    Route::get('permissions', function () {
+        Artisan::call('command:permissions');
+        return redirect()->back()->with('alert-success', 'Permissions have been successfully synced!');
     });
 });
 

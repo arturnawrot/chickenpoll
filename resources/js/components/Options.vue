@@ -11,7 +11,7 @@
                 <!-- tttttt -->
                 <div class="progressContainer form-group">
                     <div class="mt-3 progress" style="padding-left:0;height: 45px;">
-                        <progressbar :style="[!option.votes ? {'color': 'black', 'margin-left': '20px'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
+                        <progressbar :style="[!option.votes ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
                         </progressbar>
                     </div>
                 </div>
