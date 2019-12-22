@@ -25,6 +25,7 @@
 .yolo {
     color: #ffffff;
     background-color: #ff4480;
-    padding: 2px 4px;
+    padding: 3px 5px;
+    border-radius: 5px;
 }
 </style>
