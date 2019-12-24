@@ -50,6 +50,13 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
     });
 });
 
+// Route::get('/test', function() {
+//     $host = 'http://localhost:4444/wd/hub';
+//     $driver = Facebook\WebDriver\Remote\RemoteWebDriver::create($host, Facebook\WebDriver\Remote\DesiredCapabilities::chrome());
+
+//     echo 'test';
+// });
+
 Route::get('/sitemap.xml', 'SitemapController@index');
 Route::get('/sitemaps/{id}.xml', 'SitemapController@show')->name('sitemaps.polls');
 

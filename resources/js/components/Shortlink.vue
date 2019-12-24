@@ -9,6 +9,7 @@
 
 <script>
     export default {
+        params: ['slug'],
         data() {
             return {
                 url: null
@@ -24,7 +25,7 @@
             }
         },
         created() {
-            this.getUrl(window.location.href);
+            this.getUrl(document.location.origin+"/"+this.slug);
         },
     }
 </script>

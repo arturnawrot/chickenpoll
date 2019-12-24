@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\ShortlinkRepositoryInterface as Shortlink;
 use Bitly;
+use App\Models\Poll;
 
 class ShortlinkController extends Controller
 {
