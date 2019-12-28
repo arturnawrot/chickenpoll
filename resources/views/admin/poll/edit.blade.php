@@ -21,6 +21,10 @@
                         <td>{{ $poll->created_at }} </td>
                     </div>
                     <div class="row">
+                        <td>IP:</td>
+                        <td>{{ $poll->ip }} </td>
+                    </div>
+                    <div class="row">
                         <td>Votes:</td>
                         <td>{{ $poll->votes->count() }} </td>
                     </div>
