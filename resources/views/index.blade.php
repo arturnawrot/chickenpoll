@@ -2,12 +2,12 @@
 
 <?php
 $title = "ChickenPoll.com | Real time polls";
-$description = "No registration required. Real-time, instant, ad-free and simple";
+$description = "Create a survey or poll now! No registration required. Real-time, instant, ad-free and simple.";
 ?>
 
 @section('title', $title)
-@section('title-display', 'Create a new poll')
-@section('description', 'Real-time, instant, ad-free and simple')
+@section('title-display', $title)
+@section('description', $description)
 
 @section('head')
 @include('inc.meta')
