@@ -46,4 +46,16 @@ class LoginController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
+
+        /**
+     * Obtain the user information from Google.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('google')->user();
+
+        return $user->name;
+    }
 }
