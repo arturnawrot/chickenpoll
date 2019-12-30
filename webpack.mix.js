@@ -19,3 +19,5 @@ mix.js('node_modules/popper.js/dist/popper.js', 'public/js').sourceMaps();
 mix.js('resources/js/admin/app.js', 'public/js/admin/')
 .sass('resources/sass/admin/app.scss', 'public/css/admin');
 
+mix.js('resources/js/blog/clean-blog.js', 'public/js/blog/')
+.sass('resources/sass/blog/clean-blog.scss', 'public/css/blog/');

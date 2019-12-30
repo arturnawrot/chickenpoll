@@ -170,6 +170,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Shivella\Bitly\BitlyServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -240,7 +241,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Bitly' => Shivella\Bitly\Facade\Bitly::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

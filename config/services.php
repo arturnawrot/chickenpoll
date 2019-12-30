@@ -35,4 +35,8 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect'      => env('GOOGLE_REDIRECT')
     ],
+
+    'unsplash' => [
+        'key' => env('UNSPLASH_ACCESS_KEY'),
+    ],
 ];

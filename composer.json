@@ -6,11 +6,13 @@
         "framework",
         "laravel"
     ],
-    "license": "MIT",
+    "license": "",
     "require": {
         "php": "^7.2",
+        "arturek1/screenshot": "dev-master",
         "facebook/webdriver": "^1.7",
         "fideloper/proxy": "^4.0",
+        "intervention/image": "^2.5",
         "jenssegers/agent": "^2.6",
         "kyslik/column-sortable": "^6.0",
         "laravel/framework": "^6.0",
@@ -18,12 +20,15 @@
         "laravel/telescope": "^2.1",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "predis/predis": "^1.1",
         "shivella/laravel-bitly": "^1.1",
+        "spatie/laravel-backup": "^6.7",
         "spatie/laravel-permission": "^3.0",
         "spatie/laravel-sluggable": "^2.2",
         "torann/geoip": "^1.0",
-        "watson/sitemap": "^2.1"
+        "watson/sitemap": "^2.1",
+        "writingink/wink": "^0.1.0"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

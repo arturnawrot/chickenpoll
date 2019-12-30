@@ -36,4 +36,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+    * Redirect the user to the Google authentication page.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
 }

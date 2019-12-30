@@ -33,7 +33,8 @@ class SyncPermissions extends Command
         'report.view', 'report.show', 'report.delete',
         'visitor.view',
         'telescope',
-        'option.update'
+        'option.update',
+        'wink'
     ];
     /**
      * Create a new command instance.

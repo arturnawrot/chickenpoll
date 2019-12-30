@@ -2,10 +2,12 @@
     <div class="container">
         <div class="row justify-content-center">
         @yield('footer')
-        &nbsp;&nbsp;<span><a class="report-link" href="">Contact</a></span>
+        &nbsp;&nbsp;<span><a class="report-link" href="/blog/contact">Contact</a></span>
+        &nbsp;&nbsp;<span><a class="report-link" href="/blog/privacy-policy">Privacy policy</a></span>
+        &nbsp;&nbsp;<span><a class="report-link" href="/blog/terms-of-use">Terms of use</a></span>
         </div>
         <div class="row justify-content-center">
-            <span>ChickenPoll.com - All rights reserved 2019</span>
+            <span><a href="/">ChickenPoll.com</a> - All rights reserved 2019</span>
         </div>
     </div>
 </footer>

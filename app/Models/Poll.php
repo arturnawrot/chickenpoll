@@ -60,5 +60,10 @@ class Poll extends Model
             ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(50);
     }
+
+    public function thumbnail()
+    {
+        return $this->hasOne(Thumbnail::Class);
+    }
 }
 

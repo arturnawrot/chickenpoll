@@ -62,7 +62,7 @@ class AnswerController extends Controller
             $answer = $this->answer->create([
                 'option_id' => $option_id,
                 'ip' => $_SERVER['REMOTE_ADDR'],
-                'agent' => $_SERVER['HTTP_USER_AGENT']
+                'agent' => $_SERVER['HTTP_USER_AGENT'],
             ]);
             if(!$isMultipleChoice) {
                 break;

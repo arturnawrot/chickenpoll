@@ -7,6 +7,7 @@ use App\Repositories\Contracts\PollRepositoryInterface as Poll;
 use App\Repositories\Contracts\OptionRepositoryInterface as Option;
 use App\Repositories\Contracts\SettingRepositoryInterface as Setting;
 use App\Http\Requests\StorePoll;
+use App\Jobs\GenerateThumbnail;
 
 class PollController extends Controller
 {
@@ -50,6 +51,7 @@ class PollController extends Controller
             }
         }
 
+        GenerateThumbnail::dispatch($poll);
 
         return redirect()->route('polls.show', $poll->slug);
     }

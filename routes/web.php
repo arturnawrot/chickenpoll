@@ -3,6 +3,11 @@ Route::view('/', 'index')->name('index');
 
 Auth::routes();
 
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+
+// Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{slug}', 'BlogController@show')->name('blog.show');
+
 // {profile} is an username.
 // "me" is an exception which returns username of the current authenticated user.
 Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show');
@@ -43,22 +48,13 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
     Route::group(['prefix' => 'visitor'], function () {
         Route::get('/', 'VisitorController@index')->name('admin.visitors.index');
     });
-
-    Route::get('permissions', function () {
-        Artisan::call('command:permissions');
-        return redirect()->back()->with('alert-success', 'Permissions have been successfully synced!');
-    });
 });
 
-// Route::get('/test', function() {
-//     $host = 'http://localhost:4444/wd/hub';
-//     $driver = Facebook\WebDriver\Remote\RemoteWebDriver::create($host, Facebook\WebDriver\Remote\DesiredCapabilities::chrome());
-
-//     echo 'test';
-// });
-
 Route::get('/sitemap.xml', 'SitemapController@index');
-Route::get('/sitemaps/{id}.xml', 'SitemapController@show')->name('sitemaps.polls');
+Route::get('/sitemaps/posts.xml', 'SitemapController@showPosts')->name('sitemaps.posts');
+Route::get('/sitemaps/{id}.xml', 'SitemapController@showPolls')->name('sitemaps.polls');
+
+Route::view('/contact', 'contact')->name('contact');
 
 Route::get('/report/{id}', 'ReportController@index')->name('report.index');
 Route::post('/report/{id}', 'ReportController@store')->name('report.store');
@@ -67,3 +63,4 @@ Route::post('/add', 'PollController@store')->name('polls.store');
 Route::get('/{id}', 'PollController@show')->name('polls.show');
 
 Route::post('/vote', 'AnswerController@store')->name('answers.store');
+

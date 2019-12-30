@@ -13,3 +13,4 @@ yarn-error.log
 laravel-echo-server.json
 /public/js/app.js
 /public/css/app.css
+/public/thumbnails

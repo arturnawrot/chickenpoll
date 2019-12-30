@@ -36,3 +36,4 @@ Vue.component('progressbar', require('./components/ProgressBar.vue').default);
 const app = new Vue({
     el: '#app',
 });
+

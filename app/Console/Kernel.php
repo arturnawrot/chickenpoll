@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\UpdateThumbnails::Class,
     ];
 
     /**
@@ -29,7 +29,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
+        $schedule->command('cache:clear');
+        $schedule->command('config:clear');
+        $schedule->command('config:cache');
+        $schedule->command('view:clear');
+        // $schedule->command('backup:clean')->daily();
+        // $schedule->command('backup:run')->daily();
+        $schedule->command('command:thumbnails');
     }
 
     /**
