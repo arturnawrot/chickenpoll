@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2",
         "arturek1/screenshot": "dev-master",
-        "facebook/webdriver": "^1.7",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "jenssegers/agent": "^2.6",
