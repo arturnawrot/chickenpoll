@@ -3,8 +3,8 @@ Route::view('/', 'index')->name('index');
 
 Auth::routes();
 
-Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
-Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+// Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+// Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{slug}', 'BlogController@show')->name('blog.show');
