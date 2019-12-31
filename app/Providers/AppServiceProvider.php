@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // Run Telescope only one the local environment
-        // if ($this->app->isLocal()) {
+        if ($this->app->isLocal()) {
             $this->app->register(TelescopeServiceProvider::class);
-        // }
+        }
 
         $this->app->bind(Screenshot::Class, function() {
             return new Screenshot(config('google.api_key'));

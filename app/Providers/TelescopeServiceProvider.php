@@ -21,10 +21,9 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         $this->hideSensitiveRequestDetails();
 
         Telescope::filter(function (IncomingEntry $entry) {
-            return true;
-            // if ($this->app->isLocal()) {
-            //     return true;
-            // }
+            if ($this->app->isLocal()) {
+                return true;
+            }
 
             return $entry->isReportableException() ||
                    $entry->isFailedRequest() ||
@@ -41,10 +40,9 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     protected function hideSensitiveRequestDetails()
     {
-        return;
-        // if ($this->app->isLocal()) {
-        //     return;
-        // }
+        if ($this->app->isLocal()) {
+            return;
+        }
 
         Telescope::hideRequestParameters(['_token']);
 

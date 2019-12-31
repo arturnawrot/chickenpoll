@@ -28,6 +28,6 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('update-role', function ($user, $role) {
             return $user->highestRole()->authority >= $role->authority;
-        });    
+        });
     }
 }
