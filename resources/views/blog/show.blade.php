@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <?php
-    $title = "Chicken Poll | $post->title";
+    $title = "$post->title";
     $description = $post->description ?? $post->excerpt;
   ?>
   <title>{{ $title }}</title>
