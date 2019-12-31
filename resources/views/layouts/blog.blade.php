@@ -112,7 +112,7 @@
   </footer>
 
   <script src="{{ asset('js/blog/clean-blog.js') }}" defer></script>
-
+  @include('inc.google')
 </body>
 
 </html>
