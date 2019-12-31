@@ -29,13 +29,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('cache:clear');
-        $schedule->command('config:clear');
-        $schedule->command('config:cache');
-        $schedule->command('view:clear');
+        $schedule->command('cache:clear')->everyThirtyMinutes();
+        $schedule->command('config:clear')->everyThirtyMinutes();
+        $schedule->command('config:cache')->everyThirtyMinutes();
+        $schedule->command('view:clear')->everyThirtyMinutes();
         // $schedule->command('backup:clean')->daily();
         // $schedule->command('backup:run')->daily();
-        $schedule->command('command:thumbnails');
+        $schedule->command('command:thumbnails')->daily();
     }
 
     /**
