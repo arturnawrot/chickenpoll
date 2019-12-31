@@ -8,7 +8,12 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Chicken Poll | {{ $post->title }}</title>
+  <?php
+    $title = "Chicken Poll | $post->title";
+    $description = $post->description ?? $post->excerpt;
+  ?>
+  <title>{{ $title }}</title>
+  @include('inc.meta')
 
   <link href="{{ asset('css/blog/clean-blog.css') }}" rel="stylesheet">
 

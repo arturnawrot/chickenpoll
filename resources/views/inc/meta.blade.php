@@ -1,5 +1,7 @@
 <?php
-    $image = asset('images/web.png');
+    if(!isset($image)) {
+        $image = asset('images/web.png');
+    }
     if(isset($poll->thumbnail)) {
         $image = asset($poll->thumbnail->path);
     }
