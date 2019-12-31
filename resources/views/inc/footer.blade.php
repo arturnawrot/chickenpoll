@@ -7,7 +7,7 @@
         &nbsp;&nbsp;<span><a class="report-link" href="/blog/terms-of-use">Terms of use</a></span>
         </div>
         <div class="row justify-content-center">
-            <span><a href="/">ChickenPoll.com</a> - All rights reserved 2019</span>
+            <span><a href="/">ChickenPoll.com</a> - All rights reserved 2019 - {{ date("Y") }}</span>
         </div>
     </div>
 </footer>
