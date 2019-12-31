@@ -171,6 +171,7 @@ return [
         Shivella\Bitly\BitlyServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...

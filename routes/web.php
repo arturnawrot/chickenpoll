@@ -16,6 +16,9 @@ Route::get('profile/{profile}', 'ProfileController@show')->name('profile.show');
 Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin-dashboard');
 
+    Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')
+    ->middleware('permission:logs');
+
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', 'UserController@index')->name('admin.users.index');
         Route::get('/{id}', 'UserController@edit')->name('admin.users.edit');

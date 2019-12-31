@@ -34,7 +34,8 @@ class SyncPermissions extends Command
         'visitor.view',
         'telescope',
         'option.update',
-        'wink'
+        'wink',
+        'logs'
     ];
     /**
      * Create a new command instance.
