@@ -4,6 +4,7 @@
 @section('title', $title)
 @section('title-display', $poll->title)
 @section('description', 'Real-time, instant, ad-free and simple')
+@section('description-display', 'Real-time, instant, ad-free and simple')
 
 @section('head')
 <?php $description = "Vote! ".$poll->options->implode('content', ' - '); ?>
