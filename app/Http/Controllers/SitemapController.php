@@ -39,6 +39,8 @@ class SitemapController extends Controller
     {
         $posts = $this->post->live()->orderBy('publish_date', 'DESC')->get();
 
+        Sitemap::addTag(route('polls'), now(), 'daily', '1');
+        Sitemap::addTag(route('blog.index'), now(), 'daily', '1');
         foreach($posts as $post)
         {
             Sitemap::addTag(route('blog.show', $post->slug), $post->updated_at, 'daily', '1');
@@ -52,6 +54,7 @@ class SitemapController extends Controller
         if($id == 0) { $id = 1; }
         $take = $this->limit;
         $polls = $this->poll->skip($this->limit * ($id - 1))->take($take)->get();
+
 
         foreach($polls as $poll)
         {
