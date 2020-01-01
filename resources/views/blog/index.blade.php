@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <?php
 $title = "Recent posts";
-$description = "Tutorials, tips, announcments and more";
+$description = "Tutorials, tips, announcements and more";
 ?>
 
 @section('title', $title)
