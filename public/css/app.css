@@ -10647,7 +10647,7 @@ body {
   background-color: #f3f3f3;
 }
 
-body {
+#app {
   transform: scale(0.9);
 }
 
@@ -10657,9 +10657,25 @@ body {
 }
 
 .display,
-.option {
-  color: #363636;
+.option,
+nav,
+.navbar-brand,
+.post-title {
+  color: #363636 !important;
   font-weight: 700;
+}
+
+.post-title {
+  font-size: 1.4rem;
+}
+
+.post-subtitle {
+  color: #363636 !important;
+  font-size: 1rem;
+}
+
+th a {
+  color: #363636 !important;
 }
 
 .btn {

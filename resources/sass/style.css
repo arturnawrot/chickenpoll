@@ -3,7 +3,8 @@
 html, body {
     background-color: #f3f3f3;
 }
-body{
+
+#app {
     -webkit-transform: scale(0.9);
        -moz-transform: scale(0.9);
             transform: scale(0.9);
@@ -12,9 +13,19 @@ body{
     max-width: 40px;
     max-height: 40px;
 }
-.display, .option {
-    color: rgb(54, 54, 54);
+.display, .option, nav, .navbar-brand, .post-title {
+    color: rgb(54, 54, 54) !important;
     font-weight: 700;
+}
+.post-title {
+    font-size: 1.4rem;
+}
+.post-subtitle {
+    color: rgb(54, 54, 54) !important;
+    font-size: 1rem;
+}
+th a {
+    color: rgb(54, 54, 54) !important;
 }
 .btn {
     border: none !important;

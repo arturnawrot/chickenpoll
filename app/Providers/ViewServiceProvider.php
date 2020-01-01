@@ -30,7 +30,7 @@ class ViewServiceProvider extends ServiceProvider
                 'admin.role.index',
             ],
             'App\Http\View\Composers\Admin\PermissionComposer'
-        );    
+        );
 
         View::Composer(
             [
@@ -38,6 +38,13 @@ class ViewServiceProvider extends ServiceProvider
                 'admin.role.edit',
             ],
             'App\Http\View\Composers\Admin\RoleComposer'
+        );
+
+        View::Composer(
+            [
+                'list',
+            ],
+            'App\Http\View\Composers\PollComposer'
         );
     }
 }

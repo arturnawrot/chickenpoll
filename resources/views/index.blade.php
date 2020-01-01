@@ -6,8 +6,9 @@ $description = "Create a survey or poll now! No registration required. Real-time
 ?>
 
 @section('title', $title)
-@section('title-display', $title)
+@section('title-display', "Create a poll")
 @section('description', $description)
+@section('description-display', "No registration required. Real-time, instant, ad-free and simple.")
 
 @section('head')
 @include('inc.meta')

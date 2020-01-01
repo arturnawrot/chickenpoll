@@ -14,6 +14,7 @@
     @yield('head')
 </head>
 <body>
+    @include('inc.nav')
     <div id="app">
     <div class="container justify-content-center">
         <div class="row align-items-center">
@@ -23,7 +24,7 @@
                 </a></h1>
                 <div class="mt-5 col-lg-10">
                     <h2 class="display">@yield('title-display')</h2>
-                    <p class="lead">@yield('description')</p>
+                    <p class="lead">@yield('description-display')</p>
                     @include('inc.alert')
                     @yield('content')
                 </div>
