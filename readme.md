@@ -3,6 +3,8 @@
 
 - composer install
 - npm run prod
+- sudo apt-get redis && sudo apt-get redis-server
+- npm install --save socket.io-client
 - laravel-echo-server init
 - laravel-echo-server install
 - php artisan queue:listen --tries=1
