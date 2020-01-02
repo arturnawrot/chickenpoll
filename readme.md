@@ -4,8 +4,8 @@
 - sudo rm composer.lock
 - composer install
 - sudo chown -R www-data:www-data /path/to/your/laravel/root/directory
-- sudo find /path/to/your/laravel/root/directory -type f -exec chmod 644 {} \;    
-- sudo find /path/to/your/laravel/root/directory -type d -exec chmod 755 {} \;
+- sudo chown -R www-data.www-data /var/www/travel_list/storage
+- sudo chown -R www-data.www-data /var/www/travel_list/bootstrap/cache
 - sudo chgrp -R www-data storage bootstrap/cache
 - sudo chmod -R ug+rwx storage bootstrap/cache
 - npm run prod
