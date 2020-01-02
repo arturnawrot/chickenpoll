@@ -1,1 +1,1 @@
-<shortlink></shortlink>
+<shortlink slug="{{ (string)$poll->slug }}"></shortlink>

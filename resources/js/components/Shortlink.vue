@@ -2,14 +2,14 @@
     <div>
         <div class="form-group">
             <label for="bitly">Auto-generated Bit.ly shortlink</label>
-            <input id="bitly" class="col-md-10 form-control" type="text" v-model="url">
+            <input id="bitly" class="col-md-10 form-control" type="text" :value="url">
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        params: ['slug'],
+        props: ['slug'],
         data() {
             return {
                 url: null
