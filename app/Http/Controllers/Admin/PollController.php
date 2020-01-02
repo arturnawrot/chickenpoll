@@ -63,6 +63,11 @@ class PollController extends Controller
         $newOptions = $request->options;
         foreach($newOptions as $key => $newOption)
         {
+            // Delete if empty
+            if($newOption == '') {
+                $pollOptions[$key]->delete();
+                continue;
+            }
             $pollOptions[$key]->update([ 'content' => $newOption ]);
         }
 

@@ -19,13 +19,14 @@ class AnswerController extends Controller
         $this->answer = $answer;
     }
 
-    public function update($id, Request $request)
+    public function store(Request $request)
     {
         $this->middleware(['permission:answer.update']);
+
+        $id = $request->id;
         $option = $this->option->findOrFail($id);
         $new_votes = $request->new_votes;
-        $poll = $option->poll;
-        $extra_votes = $new_votes - $poll->votes->count();
+        $extra_votes = $new_votes;
         if($extra_votes >! 0) {
             return redirect()->back()->with('alert-danger', 'Incorrect number!');
         }
@@ -37,7 +38,7 @@ class AnswerController extends Controller
                 'agent' => 'fake'
             ]);
 
-            broadcast(new Vote($option));
+//            broadcast(new Vote($option));
         }
 
         return redirect()->back()->with('alert-success', 'Extra votes added!');

@@ -39,12 +39,18 @@
 
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     </form>
+                <div class="mt-4">
+                    @include('admin.inc.addOption')
+                </div>
+                <div class="mt-4">
+                    @include('admin.inc.addVotes')
+                </div>
+                <form class="mt-5 p-5" action="{{ route('admin.polls.destroy', $poll->id) }}" method="POST">
+                    @csrf()
+                    @method('DELETE')
+                    <button class="btn btn-danger">Delete poll</button>
+                </form>
             </div>
-            <form action="{{ route('admin.polls.destroy', $poll->id) }}" method="POST">
-               @csrf()
-               @method('DELETE')
-               <button class="btn btn-danger">Delete poll</button>
-            </form>
-        </div>
+            </div>
     </div>
 @endsection

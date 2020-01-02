@@ -48,8 +48,13 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
         Route::delete('/', 'ReportController@destroy')->name('admin.reports.destroy');
     });
 
+    Route::group(['prefix' => 'option'], function () {
+        Route::post('/{pollId}', 'OptionController@store')->name('admin.options.store');
+        Route::delete('/', 'OptionController@destroy')->name('admin.reports.destroy');
+    });
+
     Route::group(['prefix' => 'answer'], function () {
-        Route::patch('/{id}', 'AnswerController@update')->name('admin.answers.update');
+        Route::post('/', 'AnswerController@store')->name('admin.answers.store');
     });
 
     Route::group(['prefix' => 'visitor'], function () {

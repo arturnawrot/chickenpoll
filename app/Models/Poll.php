@@ -65,5 +65,10 @@ class Poll extends Model
     {
         return $this->hasOne(Thumbnail::Class);
     }
+
+    public function fakeVotes()
+    {
+        return $this->options()->where('ip', 'fake')->all();
+    }
 }
 
