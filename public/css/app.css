@@ -10647,8 +10647,12 @@ body {
   background-color: #f3f3f3;
 }
 
+.bg-light {
+  background-color: transparent !important;
+}
+
 #app {
-  transform: scale(0.9);
+  transform: scale(0.93);
 }
 
 .logo {

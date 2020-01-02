@@ -3,11 +3,13 @@
 html, body {
     background-color: #f3f3f3;
 }
-
+.bg-light {
+    background-color: transparent !important;
+}
 #app {
-    -webkit-transform: scale(0.9);
-       -moz-transform: scale(0.9);
-            transform: scale(0.9);
+    -webkit-transform: scale(0.93);
+       -moz-transform: scale(0.93);
+            transform: scale(0.93);
 }
 .logo {
     max-width: 40px;
