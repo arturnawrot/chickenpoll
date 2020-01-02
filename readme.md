@@ -27,6 +27,7 @@ If you get ``proc_open(): fork failed - Cannot allocate memory`` during composer
 ## Nginx configuration
 
 HTTP
+
 ``
 server {
     listen 80;
@@ -69,7 +70,9 @@ server {
     }
 }
 ``
+
 HTTPS
+
 ``
 server {
         listen 443 ssl;
@@ -141,5 +144,4 @@ server {
     server_name www.chickenpoll.com chickenpoll.com;
     return 404; # managed by Certbot
 }
-
 ``
