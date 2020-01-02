@@ -12,6 +12,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('head')
+    @include('inc.ads')
 </head>
 <body>
     @include('inc.nav')

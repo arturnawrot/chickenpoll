@@ -16,7 +16,7 @@
   @include('inc.meta')
 
   <link href="{{ asset('css/blog/clean-blog.css') }}" rel="stylesheet">
-
+    @include('inc.ads')
 
 </head>
 
