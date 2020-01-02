@@ -1,6 +1,7 @@
 
 ## Installation
 
+- sudo rm composer.lock
 - composer install
 - sudo chown -R www-data:www-data /path/to/your/laravel/root/directory
 - sudo find /path/to/your/laravel/root/directory -type f -exec chmod 644 {} \;    
