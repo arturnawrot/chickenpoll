@@ -22,7 +22,7 @@
                 <h1 class="text-center title"><a href="/" target="_blank">
                 <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
                 </a></h1>
-                <div class="col-lg-10">
+                <div class="mt-3 col-lg-10">
                     <h2 class="display">@yield('title-display')</h2>
                     <p class="lead">@yield('description-display')</p>
                     @include('inc.alert')

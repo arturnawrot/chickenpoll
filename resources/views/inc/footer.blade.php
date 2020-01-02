@@ -1,4 +1,4 @@
-<footer class="footer mt-5">
+<footer class="footer mt-5 mb-4">
     <div class="container">
         <div class="row justify-content-center">
         @yield('footer')

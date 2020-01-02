@@ -7,9 +7,9 @@ html, body {
     background-color: transparent !important;
 }
 #app {
-    -webkit-transform: scale(0.93);
-       -moz-transform: scale(0.93);
-            transform: scale(0.93);
+    -webkit-transform: scale(0.98);
+       -moz-transform: scale(0.98);
+            transform: scale(0.98);
 }
 .logo {
     max-width: 40px;
