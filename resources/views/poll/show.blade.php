@@ -17,7 +17,7 @@
 <div class="options my-5 px-1">
         <options
             :id="{{ $poll->id }}"
-            :options="`{{ json_encode($poll->options) }}`"
+            :options="`{{ json_encode($poll->options()->withCount('votes')->orderBy('votes_count', 'desc')->get()) }}`"
             :input_type="[{{ (int)$poll->settings()->where('value', 'multiple_choice')->exists() }} == 1 ? 'checkbox' : 'radio']"
         >
         </options>
