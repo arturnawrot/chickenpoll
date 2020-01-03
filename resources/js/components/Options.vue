@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="option in options" class="container-fluid" style="padding: 0; margin: 0; width:95%;">
+        <div v-for="option in options" class="container-fluid" style="padding: 0; margin: 0; width:97%;">
             <div v-if="option" class="option mt-4">
                 <div class="form-check form-check-inline">
                     <input :id="'input'+option.id" :value="option.id" name="options_id[]" class="form-check-input" :type="input_type">

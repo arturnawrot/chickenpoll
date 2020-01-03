@@ -20,7 +20,7 @@
     <div class="container justify-content-center">
         @include('inc.banners.banner')
         <div class="row align-items-center">
-            <div class="w-100">
+            <div style="width: 97%">
                 <h1 class="text-center title"><a href="/" target="_blank">
                 <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
                 </a></h1>

@@ -6,11 +6,6 @@ html, body {
 .bg-light {
     background-color: transparent !important;
 }
-#app {
-    -webkit-transform: scale(0.98);
-       -moz-transform: scale(0.98);
-            transform: scale(0.98);
-}
 .logo {
     max-width: 40px;
     max-height: 40px;
@@ -222,6 +217,6 @@ a.btn-social,
 }
 .percentage {
     position: absolute;
-    right: -14px;
+    right: -13px;
     color: #404346;
 }

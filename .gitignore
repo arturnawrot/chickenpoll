@@ -15,4 +15,10 @@ laravel-echo-server.json
 laravel-echo-server.lock
 /public/js/app.js
 /public/css/app.css
+/public/css/admin/app.css
+/public/css/blog/clean-blog.css
+/public/js/admin/app.js
+/public/js/blog/clean-blog.js
+/public/js/popper.js
+/public/mix-manifest.json
 /public/thumbnails
