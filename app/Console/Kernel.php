@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('view:clear')->everyThirtyMinutes();
         // $schedule->command('backup:clean')->daily();
         // $schedule->command('backup:run')->daily();
-        $schedule->command('command:thumbnails')->daily();
+//        $schedule->command('command:thumbnails')->daily();
     }
 
     /**

@@ -1,10 +1,11 @@
 <?php
-    if(!isset($image)) {
-        $image = asset('images/web.png');
-    }
-    if(isset($poll->thumbnail)) {
-        $image = asset($poll->thumbnail->path);
-    }
+//    if(!isset($image)) {
+//        $image = asset('images/web.png');
+//    }
+//    if(isset($poll->thumbnail)) {
+//        $image = asset($poll->thumbnail->path);
+//    }
+    $image = asset('images/poll.jpg');
 ?>
 
 <meta property="og:title" content="{{ $title }}"/>
