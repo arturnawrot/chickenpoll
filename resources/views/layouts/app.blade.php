@@ -18,6 +18,7 @@
     @include('inc.nav')
     <div id="app">
     <div class="container justify-content-center">
+        @include('inc.banners.banner')
         <div class="row align-items-center">
             <div class="w-100">
                 <h1 class="text-center title"><a href="/" target="_blank">

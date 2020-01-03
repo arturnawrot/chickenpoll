@@ -36,7 +36,9 @@
     <button type="submit" class="btn btn-lg btn-primary">Vote</button>
 </div>
 </form>
-
+<div class="mt-4">
+    @include('inc.banners.2')
+</div>
 <div class="mt-5 share">
     <div class="row">
         <div class="col-md-6">
