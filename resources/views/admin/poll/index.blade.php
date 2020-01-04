@@ -24,7 +24,7 @@
                             @foreach($polls as $poll)
                                 <tr>
                                     <td> <a href="{{ route('polls.show', $poll->slug) }}" target="_blank" rel="noopener noreferrer">{{ $poll->title }}</a> </td>
-                                    <td> {{ $poll->votes_count }} </td>
+                                    <td> {{ $poll->votes->where('ip', '!=', 'fake')->count() }} </td>
                                     <td> {{ $poll->reports_count }} </td>
                                     <td> {{ $poll->created_at }} </td>
                                     @can('poll.delete')
