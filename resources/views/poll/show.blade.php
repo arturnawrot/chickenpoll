@@ -32,7 +32,7 @@
 @endif
 
 <div class="mt-3">
-    <p><span id="totalVotes"><strong>Total votes: {{ $poll->votes->count() }}</strong></span></p>
+    <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</span></strong></p>
     <button type="submit" class="btn btn-lg btn-primary">Vote</button>
 </div>
 </form>
