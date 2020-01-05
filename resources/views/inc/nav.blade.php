@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="container">
-        @if(!Route::currentRouteNamed('index'))
-            <a class="navbar-brand" href="/">New poll</a>
-        @endif
+        <span style="font-size: 2rem;" class="text-center title">
+            <a href="/" target="_blank">
+                <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
+            </a>
+        </span>
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link {{ Route::currentRouteNamed('polls') ? 'active' : '' }}" href="{{ route('polls') }}">List of polls</a>

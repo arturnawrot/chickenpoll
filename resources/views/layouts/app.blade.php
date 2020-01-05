@@ -11,21 +11,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     @yield('head')
     @include('inc.ads')
 </head>
 <body>
     @include('inc.nav')
-    <div id="app">
-    <div class="container justify-content-center">
-        @include('inc.banners.banner')
-        <div class="row align-items-center">
+    <div id="app" class="justify-content-center">
+    <div class="container">
+        <div class="row">
             <div style="width: 97%">
-                <h1 class="text-center title"><a href="/" target="_blank">
-                <span style="color:#404346;">Chicken</span><span style="color:#ef145b;">Poll</span>
-                </a></h1>
                 <div class="mt-3 col-lg-10">
-                    <h2 class="display">@yield('title-display')</h2>
+                    @include('inc.banners.banner')
+                    <h2 class="ml-2 display">@yield('title-display')</h2>
                     <p class="lead">@yield('description-display')</p>
                     @include('inc.alert')
                     @yield('content')
@@ -39,6 +37,6 @@
 
     @yield('body-bottom')
     <script src="{{ asset('js/app.js') }}" defer></script>
-@include('inc.google')
+    @include('inc.google')
 </body>
 </html>

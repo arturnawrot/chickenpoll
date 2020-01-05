@@ -3,17 +3,20 @@
         <div v-for="option in options" class="container-fluid" style="padding: 0; margin: 0; width:97%;">
             <div v-if="option" class="option mt-4">
                 <div class="form-check form-check-inline">
-                    <input :id="'input'+option.id" :value="option.id" name="options_id[]" class="form-check-input" :type="input_type">
+                    <input v-if="showbuttons" :id="'input'+option.id" :value="option.id" name="options_id[]" class="form-check-input" :type="input_type">
                     <label :for="'input'+option.id" class="form-check-label">
                         {{ option.content }}
                     </label>
                 </div>
                 <!-- tttttt -->
-                <div class="progressContainer form-group">
+                <div v-if="setprogressbars" class="progressContainer form-group">
                     <div class="mt-3 progress" style="padding-left:0;height: 45px;">
                         <progressbar :style="[!option.votes ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
                         </progressbar>
                     </div>
+                </div>
+                <div v-if="!setprogressbars">
+                    <hr>
                 </div>
             </div>
         </div>
@@ -23,44 +26,49 @@
 <script>
     export default {
         props: [
-            'id', 'options', 'input_type'
+            'id', 'options', 'input_type', 'setprogressbars', 'showbuttons'
         ],
         mounted() {
-            function isObject(obj)
-            {
-                return obj != null && obj.constructor.name === "Object";
-            }
-
             this.options = JSON.parse(this.options);
 
-            window.Echo.channel('poll.'+this.id)
-            .listen('Vote', (updatedOptions) => {
-                for (let key in updatedOptions)
-                {
-                    if(!isObject(updatedOptions[key])) {
-                        return;
-                    }
+            if(this.setprogressbars === true) {
+                this.updateProgessBars();
+            }
+        },
+        methods: {
+            isObject: function(obj) {
+                return obj != null && obj.constructor.name === "Object";
+            },
+            updateProgessBars: function () {
+                window.Echo.channel('poll.'+this.id)
+                    .listen('Vote', (updatedOptions) => {
+                        for (let key in updatedOptions)
+                        {
+                            if(!this.isObject(updatedOptions[key])) {
+                                return;
+                            }
 
-                    var e  = updatedOptions[key];
-                    var pos = this.options.map(function(x) {return x.id; }).indexOf(e.id);
+                            var e  = updatedOptions[key];
+                            var pos = this.options.map(function(x) {return x.id; }).indexOf(e.id);
 
-                    this.options[pos].votes = e.votes;
-                    this.options[pos].percentage = e.percentage;
+                            this.options[pos].votes = e.votes;
+                            this.options[pos].percentage = e.percentage;
 
-                    var totalVotes = 0;
+                            var totalVotes = 0;
 
-                    for (var i = 0; i < this.options.length; i++) {
-                        totalVotes += this.options[i].votes
-                    }
+                            for (var i = 0; i < this.options.length; i++) {
+                                totalVotes += this.options[i].votes
+                            }
 
-                    this.options.forEach(function(option){
-                        option.percentage = option.votes / totalVotes * 100;
+                            this.options.forEach(function(option){
+                                option.percentage = option.votes / totalVotes * 100;
+                            });
+
+                            var span = document.getElementById("totalVotes");
+                            span.textContent = totalVotes;
+                        }
                     });
-
-                    var span = document.getElementById("totalVotes");
-                    span.textContent = totalVotes;
-                }
-            });
+            }
         }
     }
 </script>

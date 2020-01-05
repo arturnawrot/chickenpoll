@@ -36,7 +36,6 @@ $description = "Create a survey or poll now! No registration required. Real-time
                           </div>
                           <div class="d-inline-block mt-4">
                               <button type="submit" class="btn btn-lg btn-primary">Create</button>
-                              <!-- <button type="button" class="ml-3 btn btn-lg btn-primary">Save draft</button> -->
                           </div>
                   </form>
 @endsection

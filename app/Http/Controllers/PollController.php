@@ -44,14 +44,14 @@ class PollController extends Controller
         if($request->settings) {
             foreach($request->settings as $setting)
             {
-                if(in_array($setting, array('captcha', 'ip_checking', 'multiple_choice'))) {
+                if(in_array($setting, array('captcha', 'ip_checking', 'multiple_choice', 'results_after_voting'))) {
                     $setting = $this->setting->instance(['name' => $setting, 'value' => $setting]);
                     $poll->settings()->save($setting);
                 }
             }
         }
 
-        GenerateThumbnail::dispatch($poll);
+//        GenerateThumbnail::dispatch($poll);
 
         return redirect()->route('polls.show', $poll->slug);
     }
@@ -64,6 +64,15 @@ class PollController extends Controller
             ->where('slug', $id)
             ->firstOrFail();
         return view('poll.show', ['poll' => $poll]);
+    }
+
+    public function showResults($slug)
+    {
+        $poll = $this->poll->makeModel()
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        return view('result.show', ['poll' => $poll]);
     }
 
     public function destroy($id)

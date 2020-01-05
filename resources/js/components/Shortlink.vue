@@ -17,7 +17,7 @@
         },
         methods: {
             getUrl(url) {
-                axios.post('api/shorten', {
+                axios.post('/api/shorten', {
                     url: url
                 }).then((response) => {
                     this.url = response.data;

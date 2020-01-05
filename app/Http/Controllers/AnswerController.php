@@ -72,6 +72,6 @@ class AnswerController extends Controller
         // Send a websocket
         broadcast(new Vote($this->option->find($request->options_id)));
 
-        return redirect()->back()->with('alert-success', 'Thank you for your vote!');
+        return redirect()->route('results.show', $option->poll->slug)->with('alert-success', 'Thank you for your vote!');
     }
 }

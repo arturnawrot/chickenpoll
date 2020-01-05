@@ -22,3 +22,4 @@ laravel-echo-server.lock
 /public/js/popper.js
 /public/mix-manifest.json
 /public/thumbnails
+/bootstrap

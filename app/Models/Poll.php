@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use phpDocumentor\Reflection\Types\Boolean;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -69,6 +70,11 @@ class Poll extends Model
     public function fakeVotes()
     {
         return $this->options()->where('ip', 'fake')->all();
+    }
+
+    public function hasSetting($setting)
+    {
+        return $this->settings()->where('value', $setting)->exists();
     }
 }
 

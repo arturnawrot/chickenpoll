@@ -77,4 +77,5 @@ Route::post('/add', 'PollController@store')->name('polls.store');
 Route::get('/{id}', 'PollController@show')->name('polls.show');
 
 Route::post('/vote', 'AnswerController@store')->name('answers.store');
+Route::get('/{slug}/r', 'PollController@showResults')->name('results.show');
 
