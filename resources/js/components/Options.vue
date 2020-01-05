@@ -10,10 +10,8 @@
                 </div>
                 <!-- tttttt -->
                 <div v-if="setprogressbars" class="progressContainer form-group">
-                    <div class="mt-3 progress" style="padding-left:0;height: 45px;">
-                        <progressbar :style="[!option.votes ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
-                        </progressbar>
-                    </div>
+                    <progressbar :style="[!option.votes ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
+                    </progressbar>
                 </div>
                 <div v-if="!setprogressbars">
                     <hr>

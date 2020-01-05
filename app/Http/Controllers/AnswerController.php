@@ -50,7 +50,7 @@ class AnswerController extends Controller
             foreach($answers as $answer)
             {
                 if($answer->ip == $_SERVER['REMOTE_ADDR']) {
-                    return redirect()->back()->with('alert-danger', 'You have already voted :)');
+                    return redirect()->route('results.show', $option->poll->slug)->with('alert-danger', 'You have already voted :)');
                 }
             }
         }

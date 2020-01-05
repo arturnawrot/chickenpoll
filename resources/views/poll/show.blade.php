@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    <div class="poll">
+    <div class="shadow mb-5 bg-white rounded poll">
 
 <form action="{{ route('answers.store') }}" method="POST">
 @csrf()
@@ -18,7 +18,7 @@
     <h1 style="font-size:1.9rem;">{{ $poll->title }}</h1>
         <options class="my-5"
             :id="{{ $poll->id }}"
-            :options="`{{ json_encode($poll->options()->withCount('votes')->orderBy('votes_count', 'desc')->get()) }}`"
+            :options="`{{ json_encode($poll->options()->withCount('votes')->orderBy('content')->get()) }}`"
             :setprogressbars="{{ (string)$poll->hasSetting('results_after_voting') ? 'false' : 'true' }}"
             :showbuttons="true"
             :input_type="[{{ (int)$poll->settings()->where('value', 'multiple_choice')->exists() }} == 1 ? 'checkbox' : 'radio']"

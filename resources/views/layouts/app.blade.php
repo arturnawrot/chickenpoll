@@ -23,7 +23,7 @@
             <div style="width: 97%">
                 <div class="mt-3 col-lg-10">
                     @include('inc.banners.banner')
-                    <h2 class="ml-2 display">@yield('title-display')</h2>
+                    <h2 class="display">@yield('title-display')</h2>
                     <p class="lead">@yield('description-display')</p>
                     @include('inc.alert')
                     @yield('content')

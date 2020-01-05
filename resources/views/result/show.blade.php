@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <div class="poll">
+    <div class="shadow mb-5 bg-white rounded poll">
         <h1 style="font-size:1.9rem;">{{ $poll->title }}</h1>
         <div class="options my-5 px-1">
                 <options
