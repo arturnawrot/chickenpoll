@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.poll')
 
 <?php $title = 'ChickenPoll.com | '.$poll->title; ?>
 @section('title', $title)
@@ -11,7 +11,6 @@
 @endsection
 
 @section('content')
-    <div class="shadow mb-5 bg-white rounded poll">
         <h1 style="font-size:1.9rem;">{{ $poll->title }}</h1>
         <div class="options my-5 px-1">
                 <options
@@ -27,27 +26,6 @@
             <div class="mt-3">
                 <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</span></strong></p>
             </div>
-    </div>
-
-    <div class="mt-4">
-        @include('inc.banners.2')
-    </div>
-    <div class="mt-5 share">
-        <div class="row">
-            <div class="col-md-6">
-                @include('bitly.url')
-                <div class="form-group">
-                    <label for="link">Link with a friendly slug</label>
-                    <input id="link" class="col-md-10 form-control" type="text" value="{{ route('polls.show', $poll->slug) }}">
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    @include('inc.social-icons')
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('footer')
