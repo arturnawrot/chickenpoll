@@ -35,9 +35,7 @@
 <div class="mt-3">
     <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</span></strong></p>
     <button type="submit" class="btn btn-lg btn-primary">Vote</button>
-    @if($poll->hasSetting('results_after_voting'))
-        <a href="{{ route('results.show', $poll->slug) }}" style="color:white;" class="btn btn-lg btn-primary">Show results</a>
-    @endif
+    <a href="{{ route('results.show', $poll->slug) }}" style="color:white;" class="btn btn-lg btn-primary">Show results</a>
 </div>
 </form>
 @endsection

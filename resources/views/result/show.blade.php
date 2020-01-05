@@ -26,6 +26,9 @@
             <div class="mt-3">
                 <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</span></strong></p>
             </div>
+            <div class="mt-3">
+                <a href="{{ route('polls.show', $poll->slug) }}" style="color:white;" class="btn btn-lg btn-primary">Vote</a>
+            </div>
 @endsection
 
 @section('footer')
