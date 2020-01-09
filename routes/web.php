@@ -11,7 +11,7 @@ Route::get('/flowers', 'RedirectController@index')->name('redirect.index');
 Route::get('/posts', 'BlogController@index')->name('blog.index');
 Route::get('/blog/{slug}', 'BlogController@show')->name('blog.show');
 
-Route::view('/polls', 'list')->name('polls');
+//Route::view('/polls', 'list')->name('polls');
 
 
 // {profile} is an username.

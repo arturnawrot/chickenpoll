@@ -7,9 +7,6 @@
         </span>
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteNamed('polls') ? 'active' : '' }}" href="{{ route('polls') }}">List of polls</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link {{ Route::currentRouteNamed('blog.index') ? 'active' : '' }}" href="{{ route('blog.index') }}">Posts</a>
         </li>
         </ul>
