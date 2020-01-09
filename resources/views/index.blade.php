@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 <?php
-$title = "ChickenPoll.com | Real time polls";
-$description = "Create a survey or poll now! No registration required. Real-time, instant, ad-free and simple.";
+$title = "Chicken Poll - Create a poll online for free";
+$description = "Make your own survey or poll in seconds! No registration required. Our polls are real-time, instant and simple.";
 ?>
 
 @section('title', $title)
