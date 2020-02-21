@@ -8,7 +8,7 @@
                 </div>
                 <div v-else-if="percentage > 3">{{ responses }}</div> -->
                 <span v-if="percentage != 0" class="yolo">
-                    {{responses}}<span v-if="responses > 1 || responses === 0"> responses</span><span v-else> vote</span>
+                    {{responses}}<span v-if="responses > 1 || responses === 0"> votes</span><span v-else> vote</span>
                 </span>
             </span>
             </div>

@@ -13,7 +13,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('head')
-    @include('inc.ads')
 </head>
 <body>
 @include('inc.nav')
@@ -22,7 +21,6 @@
         <div class="row">
             <div style="width: 97%">
                 <div class="mt-3 col-lg-10">
-                    @include('inc.banners.banner')
                     <h2 class="display">@yield('title-display')</h2>
                     <p class="lead">@yield('description-display')</p>
                     @include('inc.alert')
@@ -30,7 +28,6 @@
                         @yield('content')
                     </div>
                     <div class="mt-4">
-                        @include('inc.banners.2')
                     </div>
                     <div class="mt-5 share">
                         <div class="row">

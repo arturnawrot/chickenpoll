@@ -171,7 +171,7 @@ eval("window._ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodas
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/test/resources/js/blog/clean-blog.js */"./resources/js/blog/clean-blog.js");
+module.exports = __webpack_require__(/*! C:\Users\Seba\Desktop\boilerplate\resources\js\blog\clean-blog.js */"./resources/js/blog/clean-blog.js");
 
 
 /***/ })
