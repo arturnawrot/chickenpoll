@@ -58,7 +58,7 @@ class SitemapController extends Controller
 
         foreach($polls as $poll)
         {
-            Sitemap::addTag(route('polls.show', $poll->id), $poll->updated_at, 'daily', '1');
+            Sitemap::addTag(route('polls.show', $poll->slug), $poll->updated_at, 'daily', '1');
         }
 
         return Sitemap::render();

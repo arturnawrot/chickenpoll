@@ -50,7 +50,7 @@ class UpdateThumbnails extends Command
             if(!isset($poll->thumbnail)) {
                 GenerateThumbnail::dispatch($poll);
             } else {
-                if((Bool) $poll->votes()->get()->where('created_at', '>', $poll->thumbnail->updated_at)->last()) {
+                if((Bool) $poll->responses()->get()->where('created_at', '>', $poll->thumbnail->updated_at)->last()) {
                     GenerateThumbnail::dispatch($poll);
                 }
             }

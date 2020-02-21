@@ -29,16 +29,16 @@ class Poll extends Model
         'title', 'created_at'
     ];
 
-    public $sortableAs = ['votes_count'];
+    public $sortableAs = ['responses_count'];
 
     public function options()
     {
         return $this->hasMany(Option::class);
     }
 
-    public function votes()
+    public function responses()
     {
-        return $this->hasManyThrough(Answer::Class, Option::Class);
+        return $this->hasManyThrough(Response::Class, Option::Class);
     }
 
     public function settings()
@@ -67,7 +67,7 @@ class Poll extends Model
         return $this->hasOne(Thumbnail::Class);
     }
 
-    public function fakeVotes()
+    public function fakeresponses()
     {
         return $this->options()->where('ip', 'fake')->all();
     }
@@ -75,6 +75,36 @@ class Poll extends Model
     public function hasSetting($setting)
     {
         return $this->settings()->where('value', $setting)->exists();
+    }
+
+    public function validationRules()
+    {
+        $rules = [
+            'options_id' => ['min:1', 'required']
+        ];
+
+        $availableSettings = [
+            [
+                'title' => 'captcha',
+                'key' => 'g-recaptcha-response',
+                'value' => ['required', 'recaptcha'],
+            ]
+        ];
+
+        foreach($availableSettings as $setting)
+        {
+            if($this->hasSetting($setting['title'])) {
+                $rules[$setting['key']] = $setting['value'];
+            }
+        }
+        
+        return [
+            'rules' => $rules,
+            'messages' => [
+                'options_id.required' => 'You have not selected any option(s)',
+                'g-recaptcha-response.required' => 'Please complete the captcha',
+            ]
+        ];
     }
 }
 

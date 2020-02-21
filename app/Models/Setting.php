@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    protected $primaryKey = 'poll_id';
+
     protected $fillable = [
         'poll_id', 'name', 'value'
     ];

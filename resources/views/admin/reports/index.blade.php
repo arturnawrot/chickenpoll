@@ -11,7 +11,7 @@
                     <thead>
                     <tr>
                         <th>@sortablelink('title')</th>
-                        <th>@sortablelink('votes_count', 'votes')</th>
+                        <th>@sortablelink('responses_count', 'responses')</th>
                         <th>Reports</th>
                         <th>@sortablelink('created_at')</th>
                         <th></th>
@@ -21,7 +21,7 @@
                         @foreach($polls as $poll)
                             <tr>
                                 <td> <a href="{{ route('polls.show', $poll->id) }}" target="_blank" rel="noopener noreferrer">{{ $poll->title }}</a> </td>
-                                <td> {{ $poll->votes_count }} </td>
+                                <td> {{ $poll->responses_count }} </td>
                                 <td>{{ $poll->reports()->count() }}</td>
                                 <td> {{ $poll->created_at }} </td>
                                 <td><a href="{{ route('admin.reports.show', $poll->id) }}" class="btn btn-warning btn-fw">Show</a></td>

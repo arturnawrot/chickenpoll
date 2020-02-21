@@ -10,7 +10,7 @@
                 </div>
                 <!-- tttttt -->
                 <div v-if="setprogressbars" class="progressContainer form-group">
-                    <progressbar :style="[!option.votes ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :votes="option.votes">
+                    <progressbar :style="[!option.responses ? {'color': 'black'} : {'color': 'white'}]" :id="option.id" :percentage="option.percentage" :responses="option.responses">
                     </progressbar>
                 </div>
                 <div v-if="!setprogressbars">
@@ -49,21 +49,21 @@
                             var e  = updatedOptions[key];
                             var pos = this.options.map(function(x) {return x.id; }).indexOf(e.id);
 
-                            this.options[pos].votes = e.votes;
+                            this.options[pos].responses = e.responses;
                             this.options[pos].percentage = e.percentage;
 
-                            var totalVotes = 0;
+                            var totalresponses = 0;
 
                             for (var i = 0; i < this.options.length; i++) {
-                                totalVotes += this.options[i].votes
+                                totalresponses += this.options[i].responses
                             }
 
                             this.options.forEach(function(option){
-                                option.percentage = option.votes / totalVotes * 100;
+                                option.percentage = option.responses / totalresponses * 100;
                             });
 
-                            var span = document.getElementById("totalVotes");
-                            span.textContent = totalVotes;
+                            var span = document.getElementById("totalresponses");
+                            span.textContent = totalresponses;
                         }
                     });
             }

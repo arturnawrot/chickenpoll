@@ -17,27 +17,27 @@ class Option extends Model
         'poll_id', 'content'
     ];
 
-    protected $appends = array('percentage', 'votes');
+    protected $appends = array('percentage', 'responses');
 
     public function poll()
     {
         return $this->belongsTo(Poll::Class);
     }
 
-    public function votes()
+    public function responses()
     {
-        return $this->hasMany(Answer::Class);
+        return $this->hasMany(Response::Class);
     }
 
     public function getPercentageAttribute()
     {
         // @TODO Yeah, I know...
         $poll = Poll::Where('id', $this->poll_id)->first();
-        $totalVotes = $poll->votes->count();
-        if($totalVotes === 0) {
+        $totalresponses = $poll->responses->count();
+        if($totalresponses === 0) {
             return 0;
         }
-        return $this->votes / $totalVotes * 100;
+        return $this->responses / $totalresponses * 100;
     }
 
     private function getPollModel($id)
@@ -45,15 +45,17 @@ class Option extends Model
         app('App\Models\Poll')->listcity($id);
     }
 
-    public function getVotesAttribute()
+    public function getResponsesAttribute()
     {
-        return $this->votes()->count();
+        return $this->responses()->count();
     }
 
     public function toArray() {
         $data = parent::toArray();
-        $data['votes'] = $this->votes;
+        $data['responses'] = $this->responses;
         $data['percentage'] = $this->percentage;
         return $data;
     }
+
+
 }

@@ -3,11 +3,11 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Answer;
+use App\Models\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 // Voting policy
-class AnswerPolicy
+class ResponsePolicy
 {
     use HandlesAuthorization;
 
@@ -21,7 +21,7 @@ class AnswerPolicy
         //
     }
 
-    public function create(User $user, Answer $answer)
+    public function create(User $user, Response $Response)
     {
 
     }

@@ -12,7 +12,7 @@
                         <thead>
                         <tr>
                             <th>@sortablelink('title')</th>
-                            <th>@sortablelink('votes_count', 'votes')</th>
+                            <th>@sortablelink('responses_count', 'responses')</th>
                             <th>@sortablelink('reports_count', 'reports')</th>
                             <th>@sortablelink('created_at')</th>
                             @can('poll.edit')
@@ -24,7 +24,7 @@
                             @foreach($polls as $poll)
                                 <tr>
                                     <td> <a href="{{ route('polls.show', $poll->slug) }}" target="_blank" rel="noopener noreferrer">{{ $poll->title }}</a> </td>
-                                    <td> {{ $poll->votes->where('ip', '!=', 'fake')->count() }} </td>
+                                    <td> {{ $poll->responses->where('ip', '!=', 'fake')->count() }} </td>
                                     <td> {{ $poll->reports_count }} </td>
                                     <td> {{ $poll->created_at }} </td>
                                     @can('poll.delete')

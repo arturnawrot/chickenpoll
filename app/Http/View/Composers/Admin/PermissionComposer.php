@@ -2,7 +2,7 @@
 
 namespace App\Http\View\Composers\Admin;
 
-use App\Repositories\Contracts\PermissionRepositoryInterface as Permission;
+use App\Models\Permission;
 use Illuminate\View\View;
 
 class PermissionComposer

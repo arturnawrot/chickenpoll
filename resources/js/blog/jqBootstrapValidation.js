@@ -904,7 +904,7 @@
   /**
    * Thanks to Jason Bunting via StackOverflow.com
    *
-   * http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string#answer-359910
+   * http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string#Response-359910
    * Short link: http://tinyurl.com/executeFunctionByName
    **/
   function executeFunctionByName(functionName, context /*, args*/ ) {

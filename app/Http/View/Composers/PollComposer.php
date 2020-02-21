@@ -35,7 +35,7 @@ class PollComposer
     public function compose(View $view)
     {
         $view->with(
-            'polls', $this->polls->withCount('votes')->sortable()->paginate(20)
+            'polls', $this->polls->withCount('responses')->sortable()->paginate(20)
         );
     }
 }

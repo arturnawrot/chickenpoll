@@ -15,7 +15,7 @@
         <div class="options my-5 px-1">
                 <options
                     :id="{{ $poll->id }}"
-                    :options="`{{ json_encode($poll->options()->withCount('votes')->orderBy('votes_count', 'desc')->get()) }}`"
+                    :options="`{{ json_encode($poll->options()->withCount('responses')->orderBy('responses_count', 'desc')->get()) }}`"
                     :setprogressbars="true"
                     :showbuttons="false"
                     :input_type="[{{ (int)$poll->settings()->where('value', 'multiple_choice')->exists() }} == 1 ? 'checkbox' : 'radio']"
@@ -24,7 +24,7 @@
             </div>
 
             <div class="mt-3">
-                <p><strong>Total votes: <span id="totalVotes">{{ $poll->votes->count() }}</span></strong></p>
+                <p><strong>Total responses: <span id="totalresponses">{{ $poll->responses->count() }}</span></strong></p>
             </div>
             <div class="mt-3">
                 <a href="{{ route('polls.show', $poll->slug) }}" style="color:white;" class="btn btn-lg btn-primary">Vote</a>

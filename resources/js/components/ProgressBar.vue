@@ -4,11 +4,11 @@
         <div class="mt-3 progress" style="padding-left:0;height: 45px;">
             <div class="progress-bar" role="progressbar" :aria-valuenow="percentage" aria-valuemin="0" aria-valuemax="100" :style="{'width': percentage + '%' }">
             <span :style="[percentage < 8 ? {'margin-left': '5px', 'color': color} : {'color': color}]" class="lol">
-                <!-- <div v-if="percentage > 8">{{votes}}<span v-if="votes > 1"> votes</span><span v-else> vote</span>
+                <!-- <div v-if="percentage > 8">{{responses}}<span v-if="responses > 1"> responses</span><span v-else> vote</span>
                 </div>
-                <div v-else-if="percentage > 3">{{ votes }}</div> -->
+                <div v-else-if="percentage > 3">{{ responses }}</div> -->
                 <span v-if="percentage != 0" class="yolo">
-                    {{votes}}<span v-if="votes > 1 || votes === 0"> votes</span><span v-else> vote</span>
+                    {{responses}}<span v-if="responses > 1 || responses === 0"> responses</span><span v-else> vote</span>
                 </span>
             </span>
             </div>
@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        props: ['percentage', 'votes', 'color'],
+        props: ['percentage', 'responses', 'color'],
     }
 </script>
 

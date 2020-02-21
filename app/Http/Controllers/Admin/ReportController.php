@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\Contracts\PollRepositoryInterface as Poll;
-use App\Repositories\Contracts\ReportRepositoryInterface as Report;
+use App\Models\Poll;
+use App\Models\Report;
 
 class ReportController extends Controller
 {
@@ -25,9 +25,9 @@ class ReportController extends Controller
     public function index()
     {
         $this->middleware(['permission:report.view']);
-        $polls = $this->poll->makeModel()
+        $polls = $this->poll
             ->whereHas('reports')
-            ->withCount('votes')
+            ->withCount('responses')
             ->sortable()
             ->paginate(50);
         return view('admin.reports.index', ['polls' => $polls]);

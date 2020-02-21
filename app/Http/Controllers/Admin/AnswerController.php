@@ -5,34 +5,34 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Option;
-use App\Models\Answer;
+use App\Models\Response;
 use App\Events\Vote;
 
-class AnswerController extends Controller
+class ResponseController extends Controller
 {
     private $option;
-    private $answer;
+    private $Response;
 
-    function __construct(Option $option, Answer $answer)
+    function __construct(Option $option, Response $Response)
     {
         $this->option = $option;
-        $this->answer = $answer;
+        $this->Response = $Response;
     }
 
     public function store(Request $request)
     {
-        $this->middleware(['permission:answer.update']);
+        $this->middleware(['permission:Response.update']);
 
         $id = $request->id;
         $option = $this->option->findOrFail($id);
-        $new_votes = $request->new_votes;
-        $extra_votes = $new_votes;
-        if($extra_votes >! 0) {
+        $new_responses = $request->new_responses;
+        $extra_responses = $new_responses;
+        if($extra_responses >! 0) {
             return redirect()->back()->with('alert-danger', 'Incorrect number!');
         }
-        foreach(range(1, $extra_votes) as $vote)
+        foreach(range(1, $extra_responses) as $vote)
         {
-            $answer = $this->answer->create([
+            $Response = $this->Response->create([
                 'option_id' => $option->id,
                 'ip' => 'fake',
                 'agent' => 'fake'
@@ -41,6 +41,6 @@ class AnswerController extends Controller
 //            broadcast(new Vote($option));
         }
 
-        return redirect()->back()->with('alert-success', 'Extra votes added!');
+        return redirect()->back()->with('alert-success', 'Extra responses added!');
     }
 }

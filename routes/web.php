@@ -55,8 +55,8 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
         Route::delete('/', 'OptionController@destroy')->name('admin.reports.destroy');
     });
 
-    Route::group(['prefix' => 'answer'], function () {
-        Route::post('/', 'AnswerController@store')->name('admin.answers.store');
+    Route::group(['prefix' => 'Response'], function () {
+        Route::post('/', 'ResponseController@store')->name('admin.Responses.store');
     });
 
     Route::group(['prefix' => 'visitor'], function () {
@@ -76,6 +76,6 @@ Route::post('/report/{id}', 'ReportController@store')->name('report.store');
 Route::post('/add', 'PollController@store')->name('polls.store');
 Route::get('/{id}', 'PollController@show')->name('polls.show');
 
-Route::post('/vote', 'AnswerController@store')->name('answers.store');
+Route::post('/vote', 'ResponseController@store')->name('Responses.store');
 Route::get('/{slug}/r', 'PollController@showResults')->name('results.show');
 

@@ -25,8 +25,8 @@
                         <td>{{ $poll->ip }} </td>
                     </div>
                     <div class="row">
-                        <td>Votes:</td>
-                        <td>{{ $poll->votes->count() }} </td>
+                        <td>responses:</td>
+                        <td>{{ $poll->responses->count() }} </td>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                     @include('admin.inc.addOption')
                 </div>
                 <div class="mt-4">
-                    @include('admin.inc.addVotes')
+                    @include('admin.inc.addresponses')
                 </div>
                 <form class="mt-5 p-5" action="{{ route('admin.polls.destroy', $poll->id) }}" method="POST">
                     @csrf()

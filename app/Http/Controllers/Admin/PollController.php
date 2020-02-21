@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\Contracts\PollRepositoryInterface as Poll;
+use App\Models\Poll;
 
 class PollController extends Controller
 {
@@ -23,7 +23,7 @@ class PollController extends Controller
     public function index()
     {
         $this->middleware(['permission:poll.view']);
-        return view('admin.poll.index', ['polls' => $this->poll->withCount('votes')->sortable()->paginate(50)]);
+        return view('admin.poll.index', ['polls' => $this->poll->withCount('responses')->sortable()->paginate(50)]);
     }
 
     /**

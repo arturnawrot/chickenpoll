@@ -20,7 +20,7 @@ $description = "Create a survey or poll now! No registration required. Real-time
     <thead>
         <tr>
             <th>@sortablelink('title')</th>
-            <th>@sortablelink('votes_count', 'Votes')</th>
+            <th>@sortablelink('responses_count', 'responses')</th>
             <th>@sortablelink('created_at')</th>
         </tr>
     </thead>
@@ -28,7 +28,7 @@ $description = "Create a survey or poll now! No registration required. Real-time
         @foreach($polls as $poll)
             <tr>
                 <td><a href="{{ route('polls.show', $poll->slug) }}">{{ $poll->title }}</a></td>
-                <td>{{ $poll->votes_count }}</td>
+                <td>{{ $poll->responses_count }}</td>
                 <td>{{ $poll->created_at }}</td>
             </tr>
         @endforeach

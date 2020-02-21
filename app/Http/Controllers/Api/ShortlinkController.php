@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\Contracts\ShortlinkRepositoryInterface as Shortlink;
+use App\Models\Shortlink;
 use Bitly;
 use App\Models\Poll;
 

@@ -75,7 +75,7 @@ class CreatePollsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::dropIfExists('Responses');
         Schema::dropIfExists('options');
         Schema::dropIfExists('settings');
         Schema::dropIfExists('reports');

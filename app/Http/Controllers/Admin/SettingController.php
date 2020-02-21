@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\UserRepositoryInterface as User;
-use App\Repositories\Contracts\RoleRepositoryInterface as Role;
+use App\Models\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {

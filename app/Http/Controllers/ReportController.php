@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\Contracts\ReportRepositoryInterface as Report;
-use App\Repositories\Contracts\PollRepositoryInterface as Poll;
+use App\Models\Report;
+use App\Models\Poll;
 use App\Http\Requests\StoreReport;
 
 class ReportController extends Controller

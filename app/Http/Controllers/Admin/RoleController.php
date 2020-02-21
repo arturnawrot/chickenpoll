@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\RoleRepositoryInterface as Role;
+use App\Models\Role;
 
 class RoleController extends Controller
 {

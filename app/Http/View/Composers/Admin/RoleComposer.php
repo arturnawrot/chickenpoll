@@ -2,7 +2,7 @@
 
 namespace App\Http\View\Composers\Admin;
 
-use App\Repositories\Contracts\RoleRepositoryInterface as Role;
+use App\Models\Role;
 use Illuminate\View\View;
 
 class RoleComposer
