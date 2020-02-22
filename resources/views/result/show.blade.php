@@ -24,7 +24,17 @@
             </div>
 
             <div class="mt-3">
-                <p><strong>Total responses: <span id="totalresponses">{{ $poll->responses->count() }}</span></strong></p>
+                <p>
+                    <strong>Total votes:
+                        <span id="totalresponses">
+                            {{
+                                $poll->responses()->groupBy('ip')
+                                    ->raw('COUNT(*) = 1')
+                                    ->count()
+                            }}
+                        </span>
+                    </strong>
+                </p>
             </div>
             <div class="mt-3">
                 <a href="{{ route('polls.show', $poll->slug) }}" style="color:white;" class="btn btn-lg btn-primary">Vote</a>
