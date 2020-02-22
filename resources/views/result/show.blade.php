@@ -28,9 +28,9 @@
                     <strong>Total votes:
                         <span id="totalresponses">
                             {{
-                                $poll->responses()->groupBy('ip')
-                                    ->raw('COUNT(*) = 1')
-                                    ->count()
+                                $poll->responses()
+                                    ->distinct('ip')
+                                    ->count('ip')
                             }}
                         </span>
                     </strong>
