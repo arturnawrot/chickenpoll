@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Shortlink;
 use Bitly;
-use App\Models\Poll;
 
 class ShortlinkController extends Controller
 {
@@ -23,7 +22,7 @@ class ShortlinkController extends Controller
             'url' => 'required|url'
         ]);
 
-        if(!$this->shortlink->exists('url', $request->url)) {
+        if($this->shortlink->where('url', $request->url)->doesntExist()) {
             $shortened_url = Bitly::getUrl($request->url);
             $this->shortlink->create([
                 'url' => $request->url,
