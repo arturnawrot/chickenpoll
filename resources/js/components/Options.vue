@@ -22,11 +22,23 @@
 </template>
 
 <script>
+    import Echo from "laravel-echo"
+
     export default {
         props: [
             'id', 'options', 'input_type', 'setprogressbars', 'showbuttons'
         ],
         mounted() {
+            window.io = require('socket.io-client');
+            window.Echo = new Echo({
+                broadcaster: 'socket.io',
+                host: window.location.hostname + ':6001',
+                wsHost: window.location.hostname,
+                wsPort: 6001,
+                disableStats: true,
+                enabledTransports: ['ws', 'wss'] // <- added this param
+            });
+
             this.options = JSON.parse(this.options);
 
             if(this.setprogressbars === true) {
