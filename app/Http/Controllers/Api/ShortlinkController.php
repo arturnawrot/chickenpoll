@@ -32,7 +32,10 @@ class ShortlinkController extends Controller
                 'ip' => $_SERVER['REMOTE_ADDR']
             ]);
         } else {
-            $shortened_url = $this->shortlink->findBy('url', $request->url)->shortened_url;
+            $shortened_url = $this->shortlink
+                ->where('url', $request->url)
+                ->firstOrFail()
+                ->shortened_url;
         }
 
         return $shortened_url;
