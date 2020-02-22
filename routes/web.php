@@ -55,7 +55,7 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
         Route::delete('/', 'OptionController@destroy')->name('admin.reports.destroy');
     });
 
-    Route::group(['prefix' => 'Response'], function () {
+    Route::group(['prefix' => 'vote'], function () {
         Route::post('/', 'ResponseController@store')->name('admin.Responses.store');
     });
 
