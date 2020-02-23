@@ -172,6 +172,7 @@ return [
         \Torann\GeoIP\GeoIPServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
         /*
          * Application Service Providers...
