@@ -31,5 +31,6 @@
     background-color: #ff4480;
     padding: 3px 5px;
     border-radius: 5px;
+    font-weight: 500;
 }
 </style>

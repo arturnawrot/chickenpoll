@@ -18,11 +18,9 @@
 @include('inc.nav')
 <div id="app" class="justify-content-center">
     <div class="container">
-        <div class="row">
-            <div style="width: 97%">
-                <div class="mt-3 col-lg-10">
-                    <h2 class="display">@yield('title-display')</h2>
-                    <p class="lead">@yield('description-display')</p>
+        <div class="mt-3">
+            <div class="row">
+                <div class="col-lg-9">
                     @include('inc.alert')
                     <div class="shadow mb-5 bg-white rounded poll">
                         @yield('content')
@@ -46,6 +44,9 @@
                         </div>
                     </div>
                 </div>
+                {{--<div class="col-lg-3">--}}
+
+                {{--</div>--}}
             </div>
         </div>
     </div>

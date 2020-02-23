@@ -2,7 +2,6 @@
 
 <?php $title = 'ChickenPoll.com | '.$poll->title; ?>
 @section('title', $title)
-@section('title-display', "Results")
 @section('description', 'Real-time, instant, ad-free and simple')
 
 @section('head')
@@ -11,7 +10,7 @@
 @endsection
 
 @section('content')
-        <h1 style="font-size:1.9rem;">{{ $poll->title }}</h1>
+        <h1 style="font-size:1.7rem;">{{ $poll->title }}</h1>
         <div class="options my-5 px-1">
                 <options
                     :id="{{ $poll->id }}"

@@ -23,7 +23,7 @@
                 <div class="mt-3 col-lg-10">
                     @include('inc.alert')
                     <div class="shadow mb-5 bg-white rounded poll">
-                        <h2 class="display">@yield('title-display')</h2>
+                        <h1 class="display">@yield('title-display')</h1>
                         <p class="lead">@yield('description-display')</p>
                         @yield('content')
                     </div>
