@@ -24,7 +24,10 @@ class Response extends Model
 
     public function visitor()
     {
-        return Visitor::Where('ip', $this->ip)->first();
+        return Visitor::Where('ip', $this->ip)
+            ->where('created_at', '<', $this->created_at)
+            ->orderBy('id', 'desc')
+            ->first();
 //        return $this->hasOne(Visitor::Class, 'ip', 'ip');
     }
 }
