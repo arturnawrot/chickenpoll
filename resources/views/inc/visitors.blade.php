@@ -4,7 +4,7 @@
     </div>
     <table class="table" style="font-size:0.8rem;">
         <tbody>
-            <?php $responses = $poll->responses()->paginate(10); ?>
+            <?php $responses = $poll->responses()->orderBy('created_at', 'DESC')->paginate(10); ?>
             @foreach($responses as $response)
                 <?php
                     $visitor = $response->visitor();
