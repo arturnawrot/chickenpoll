@@ -51,7 +51,10 @@ class ResponseController extends Controller
         }
 
         // Send a websocket
-        broadcast(new Vote($this->option->find($request->options_id)));
+        broadcast(new Vote([
+            'options' => $this->option->find($request->options_id),
+            'ip' => $_SERVER['REMOTE_ADDR']
+        ]));
 
         return redirect()->route('results.show', $option->poll->slug)->with('alert-success', 'Thank you for your vote!');
     }

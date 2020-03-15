@@ -21,4 +21,10 @@ class Response extends Model
     {
         return $this->hasOneThrough(Option::Class, Poll::Class);
     }
+
+    public function visitor()
+    {
+        return Visitor::Where('ip', $this->ip)->first();
+//        return $this->hasOne(Visitor::Class, 'ip', 'ip');
+    }
 }

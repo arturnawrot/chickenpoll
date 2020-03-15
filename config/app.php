@@ -237,6 +237,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
+         * Application aliasses...
+         */
+
+        'Helper' => App\Helpers\Helper::class,
+
+        /*
          * Package aliasses...
          */
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,

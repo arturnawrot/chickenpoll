@@ -32,8 +32,8 @@
             window.io = require('socket.io-client');
             window.Echo = new Echo({
                 broadcaster: 'socket.io',
-                host: window.location.hostname + ':6001',
-                wsHost: window.location.hostname,
+                host: "https://"+window.location.hostname + ':6001',
+                wsHost: "https://"+window.location.hostname,
                 wsPort: 6001,
                 disableStats: true,
                 enabledTransports: ['ws', 'wss'] // <- added this param
@@ -51,7 +51,8 @@
             },
             updateProgessBars: function () {
                 window.Echo.channel('poll.'+this.id)
-                    .listen('Vote', (updatedOptions) => {
+                    .listen('Vote', (data) => {
+                        var updatedOptions = data['options'];
                         for (let key in updatedOptions)
                         {
                             if(!this.isObject(updatedOptions[key])) {
@@ -77,6 +78,15 @@
                             var span = document.getElementById("totalresponses");
                             span.textContent = totalresponses;
                         }
+
+                        // @TODO It's unclean and dirty. Need to create another method.
+
+                        var visitor = data['visitor'];
+
+                        // console.log(visitor);
+
+
+
                     });
             }
         }

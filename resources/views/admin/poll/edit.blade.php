@@ -36,7 +36,6 @@
                         <input class="mt-2 form-control" name="options[]" type="text" value="{{ $option->content }}">
                     @endforeach
                 </div>
-
                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                     </form>
                 <div class="mt-4">

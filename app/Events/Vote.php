@@ -10,22 +10,24 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Database\Eloquent\Collection;
-use App\Models\Option;
+use App\Models\Visitor;
 
 class Vote implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $options;
+    public $visitor;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Collection $options)
+    public function __construct($data)
     {
-        $this->options = $options;
+        $this->options = $data['options'];
+        $this->visitor = Visitor::Where('ip', $data['ip'])->first();
     }
 
     /**
@@ -51,9 +53,18 @@ class Vote implements ShouldBroadcast
             $options[] = [
                 'id' => $option->id,
                 'responses' => $option->responses,
-                'percentage' => $option->percentage
+                'percentage' => $option->percentage,
             ];
         }
-        return $options;
+
+        return [
+            'options' => $options,
+            'visitor' => [
+                'country' => $this->visitor->country,
+                'country_code' => $this->visitor->country_code,
+                'city' => $this->visitor->city,
+                'created_at' => $this->visitor->created_at->toString()
+            ]
+        ];
     }
 }

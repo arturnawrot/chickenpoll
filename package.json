@@ -49,6 +49,7 @@
         "run-sequence": "^2.2.1"
     },
     "dependencies": {
+        "flag-icon-css": "^3.4.6",
         "laravel-echo": "^1.6.1",
         "socket.io-client": "^2.3.0",
         "startbootstrap-clean-blog": "^5.0.8"

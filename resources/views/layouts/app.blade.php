@@ -16,17 +16,18 @@
 </head>
 <body>
     @include('inc.nav')
-    <div id="app" class="justify-content-center">
+    <div id="app">
     <div class="container">
         <div class="row">
             <div style="width: 97%">
-                <div class="mt-3 col-lg-10">
+                <div class="mx-auto mt-3 col-lg-10">
                     @include('inc.alert')
                     <div class="shadow mb-5 bg-white rounded poll">
                         <h1 class="display">@yield('title-display')</h1>
                         <p class="lead">@yield('description-display')</p>
                         @yield('content')
                     </div>
+                    @yield('content-bottom')
                 </div>
             </div>
         </div>

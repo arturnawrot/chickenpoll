@@ -24,7 +24,7 @@ recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js');
 document.head.appendChild(recaptchaScript);
 
 Vue.component('shortlink', require('./components/Shortlink.vue').default);
-Vue.component('options', require('./components/Options.vue').default);
+Vue.component('poll', require('./components/Poll.vue').default);
 Vue.component('progressbar', require('./components/ProgressBar.vue').default);
 
 /**

@@ -6,7 +6,9 @@ Auth::routes();
 // Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 // Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
 
-Route::get('/flowers', 'RedirectController@index')->name('redirect.index');
+
+
+//Route::get('/flowers', 'RedirectController@index')->name('redirect.index');
 
 Route::get('/posts', 'BlogController@index')->name('blog.index');
 Route::get('/blog/{slug}', 'BlogController@show')->name('blog.show');

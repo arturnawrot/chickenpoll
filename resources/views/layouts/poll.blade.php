@@ -36,17 +36,15 @@
                                     <input id="link" class="col-md-10 form-control" type="text" value="{{ route('polls.show', $poll->slug) }}">
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col">
-                                    @include('inc.social-icons')
-                                </div>
+                            <div class="col-md-6 mt-3">
+                                @include('inc.social-icons')
                             </div>
                         </div>
                     </div>
                 </div>
-                {{--<div class="col-lg-3">--}}
-
-                {{--</div>--}}
+                <div class="col-lg-3">
+                    @include('inc.visitors')
+                </div>
             </div>
         </div>
     </div>

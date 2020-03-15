@@ -12,14 +12,14 @@
 @section('content')
         <h1 style="font-size:1.7rem;">{{ $poll->title }}</h1>
         <div class="options my-5 px-1">
-                <options
+                <poll
                     :id="{{ $poll->id }}"
                     :options="`{{ json_encode($poll->options()->withCount('responses')->orderBy('responses_count', 'desc')->get()) }}`"
                     :setprogressbars="true"
                     :showbuttons="false"
                     :input_type="[{{ (int)$poll->settings()->where('value', 'multiple_choice')->exists() }} == 1 ? 'checkbox' : 'radio']"
                 >
-                </options>
+                </poll>
             </div>
 
             <div class="mt-3">

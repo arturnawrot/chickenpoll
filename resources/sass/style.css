@@ -16,7 +16,8 @@ html, body {
     font-weight: 500;
 }
 .display {
-    font-size: 1.5em;
+    font-size: 1.9em;
+    font-weight: 700;
 }
 .post-title {
     font-size: 1.4rem;
@@ -63,13 +64,14 @@ input::-webkit-input-placeholder {
 .btn {
     background-color: #ef145bde!important;
     border-radius: 5px!important;
-    font-weight: 400;
+    font-weight: 500;
     color: #fbfbfb;
 }
 .lead {
     color: #dc3545;
+    font-weight: 500;
 }
-.progress-bar, .lead {
+.progress-bar {
     font-weight: 400;
 }
 .progress-bar {
@@ -234,6 +236,6 @@ a.btn-social,
 .shadow {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.07) !important;
 }
-td {
-    padding: .52rem !important;
+td, th {
+    padding: .40rem !important;
 }

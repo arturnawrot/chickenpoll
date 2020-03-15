@@ -14,14 +14,14 @@
 @csrf()
 <div class="options px-1">
     <h1 style="font-size:1.9rem;">{{ $poll->title }}</h1>
-        <options class="my-5"
+        <poll class="my-5"
             :id="{{ $poll->id }}"
             :options="`{{ json_encode($poll->options()->withCount('responses')->orderBy('content')->get()) }}`"
             :setprogressbars="{{ (string)$poll->hasSetting('results_after_voting') ? 'false' : 'true' }}"
             :showbuttons="true"
             :input_type="[{{ (int)$poll->hasSetting('multiple_choice') }} == 1 ? 'checkbox' : 'radio']"
         >
-        </options>
+        </poll>
 </div>
 
 @if($poll->hasSetting('captcha'))

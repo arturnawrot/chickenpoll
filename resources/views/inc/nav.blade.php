@@ -7,7 +7,9 @@
         </span>
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link {{ Route::currentRouteNamed('blog.index') ? 'active' : '' }}" href="{{ route('blog.index') }}">Posts</a>
+            @if(Route::currentRouteNamed('blog.show'))
+                <a class="nav-link" href="{{ route('index') }}">Create a poll</a>
+            @endif
         </li>
         </ul>
     </div>

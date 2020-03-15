@@ -26,6 +26,13 @@ class ViewServiceProvider extends ServiceProvider
     {
         View::composer(
             [
+                'index'
+            ],
+            'App\Http\View\Composers\PostComposer'
+        );
+
+        View::composer(
+            [
                 'admin.role.edit',
                 'admin.role.index',
             ],
