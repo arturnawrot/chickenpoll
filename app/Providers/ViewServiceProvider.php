@@ -26,6 +26,13 @@ class ViewServiceProvider extends ServiceProvider
     {
         View::composer(
             [
+                '*'
+            ],
+            'App\Http\View\Composers\SiteSettingComposer'
+        );
+
+        View::composer(
+            [
                 'index'
             ],
             'App\Http\View\Composers\PostComposer'
@@ -49,6 +56,7 @@ class ViewServiceProvider extends ServiceProvider
 
         View::Composer(
             [
+                'index',
                 'list',
             ],
             'App\Http\View\Composers\PollComposer'

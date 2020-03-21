@@ -64,6 +64,11 @@ Route::group(['middleware' => ['permission:admin-dashboard'], 'namespace' => 'Ad
     Route::group(['prefix' => 'visitor'], function () {
         Route::get('/', 'VisitorController@index')->name('admin.visitors.index');
     });
+
+    Route::group(['prefix' => 'sitesettings'], function () {
+        Route::get('/', 'SiteSettingController@edit')->name('admin.settings.edit');
+        Route::post('/', 'SiteSettingController@update')->name('admin.settings.update');
+    });
 });
 
 Route::get('/sitemap.xml', 'SitemapController@index');

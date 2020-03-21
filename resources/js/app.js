@@ -26,6 +26,7 @@ document.head.appendChild(recaptchaScript);
 Vue.component('shortlink', require('./components/Shortlink.vue').default);
 Vue.component('poll', require('./components/Poll.vue').default);
 Vue.component('progressbar', require('./components/ProgressBar.vue').default);
+Vue.component('piechart', require('./components/PieChart.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

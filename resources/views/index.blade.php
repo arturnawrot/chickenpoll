@@ -41,21 +41,71 @@ $description = "Make your own survey or poll in seconds! No registration require
 @endsection
 
 @section('content-bottom')
-    {{-- Articles --}}
-    @foreach($posts as $post)
-        @if(in_array($post->slug, array('terms-of-use', 'privacy-policy', 'contact')))
-            @continue
-        @endif
-    <div class="shadow mb-5 bg-white rounded row mx-auto">
-        <div class="col-md-12">
-            <div class="card-body">
-                <h5 class="card-title">{{ $post->title }}</h5>
-                <p class="card-text">{{ $post->excerpt }}</p>
-                <a href="{{ route('blog.show', $post->slug) }}" class="btn btn-primary">Read more</a>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="shadow mb-5 bg-white rounded mx-auto">
+                <div class="card-body">
+                    <div class="card-title">
+                        <b>Safety first</b>
+                    </div>
+                    <div class="card-text">
+                        Creating polls or voting is completely anonymous. We will never share any information about you with third parties.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="shadow mb-5 bg-white rounded mx-auto">
+                <div class="card-body">
+                    <div class="card-title">
+                        <b>VPN detection</b>
+                    </div>
+                    <div class="card-text">
+                        We effectively block any proxy or VPN traffic and prevent from voting in our polls.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="shadow mb-5 bg-white rounded mx-auto">
+                <div class="card-body">
+                    <div class="card-title">
+                        <b>Free of charge</b>
+                    </div>
+                    <div class="card-text">
+                        We will never charge you for using our services. Our polls and surveys are 100% free to create.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="row">
+    @foreach($polls as $poll)
+            @if(count($poll->responses) < 3)
+                @continue
+            @endif
+            <div class="col-md-6">
+                <div class="shadow mb-5 bg-white rounded mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $poll->title }}</h5>
+                        <p class="card-text">
+                            <piechart
+                                :labels="`{{ json_encode($poll->options()->pluck('content')->toArray()) }}`"
+                                :scores="`{{ json_encode($poll->options()->withCount('responses')->pluck('responses_count')->toArray()) }}`"
+                            ></piechart>
+                        </p>
+                        <a href="{{ route('polls.show', $poll->slug) }}" class="btn btn-primary">Check it out</a>
+                    </div>
+                </div>
+            </div>
     @endforeach
+    </div>
+    {{ $polls->links() }}
+
+    <div class="row mt-5">
+        @include('inc.posts')
+    </div>
 @endsection
 
 @section('body-bottom')

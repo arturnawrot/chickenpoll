@@ -55,7 +55,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = $this->user->find($id);
-        $role = $this->role->findBy('name', $request->role);
+        $role = $this->role->where('name', $request->role)->first();
 
         $this->authorize('update', $user);
 

@@ -54,5 +54,13 @@
               </a>
           </li>
           @endcan
+          @can('settings.view')
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('admin.settings.edit') }}">
+                      <span class="menu-title">Settings</span>
+                      <i class="mdi mdi-account-multiple menu-icon"></i>
+                  </a>
+              </li>
+          @endcan
       </ul>
 </nav>

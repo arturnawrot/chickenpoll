@@ -70,7 +70,7 @@ class RoleController extends Controller
         $role = $this->role->find($id);
 
         // @TODO It just looks bad :P
-        $this->authorize('create', $this->role->instance($request->only('name', 'authority')));
+        $this->authorize('create', new Role($request->only('name', 'authority')));
 
         $role->update($request->only('name', 'authority'));
         $role->syncPermissions($request->permissions);

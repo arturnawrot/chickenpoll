@@ -32,6 +32,7 @@ class SyncPermissions extends Command
         'poll.view', 'poll.update', 'poll.delete',
         'report.view', 'report.show', 'report.delete',
         'visitor.view',
+        'settings.view',
         'telescope',
         'option.update',
         'wink',

@@ -49,9 +49,11 @@
         "run-sequence": "^2.2.1"
     },
     "dependencies": {
+        "apexcharts": "^3.17.0",
         "flag-icon-css": "^3.4.6",
         "laravel-echo": "^1.6.1",
         "socket.io-client": "^2.3.0",
-        "startbootstrap-clean-blog": "^5.0.8"
+        "startbootstrap-clean-blog": "^5.0.8",
+        "vue-apexcharts": "^1.5.2"
     }
 }

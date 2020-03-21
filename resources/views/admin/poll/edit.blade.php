@@ -44,6 +44,9 @@
                 <div class="mt-4">
                     @include('admin.inc.addVotes')
                 </div>
+                <div class="mt-4">
+                    @include('admin.inc.settings')
+                </div>
                 <form class="mt-5 p-5" action="{{ route('admin.polls.destroy', $poll->id) }}" method="POST">
                     @csrf()
                     @method('DELETE')

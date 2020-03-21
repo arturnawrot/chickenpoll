@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGeneralSettingsTable extends Migration
+class CreateSiteSettingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateGeneralSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('general_settings', function (Blueprint $table) {
+        Schema::create('site_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->longText('value');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateGeneralSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('general_settings');
+        Schema::dropIfExists('site_settings');
     }
 }

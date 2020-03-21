@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    {!! $sitesettings->where('name', 'head')->first()->value !!}
+
     @yield('head')
 </head>
 <body>

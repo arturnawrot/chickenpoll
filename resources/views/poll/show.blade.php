@@ -17,7 +17,7 @@
         <poll class="my-5"
             :id="{{ $poll->id }}"
             :options="`{{ json_encode($poll->options()->withCount('responses')->orderBy('content')->get()) }}`"
-            :setprogressbars="{{ (string)$poll->hasSetting('results_after_voting') ? 'false' : 'true' }}"
+            :setprogressbars="false"
             :showbuttons="true"
             :input_type="[{{ (int)$poll->hasSetting('multiple_choice') }} == 1 ? 'checkbox' : 'radio']"
         >
