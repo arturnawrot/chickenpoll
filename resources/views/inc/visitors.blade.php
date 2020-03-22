@@ -9,7 +9,7 @@
                 <?php
                     $visitor = $response->visitor();
                 ?>
-                @if($visitor === null)
+                @if($visitor === null OR $visitor->city == 'Evans')
                     @continue
                 @endif
                 <tr>
