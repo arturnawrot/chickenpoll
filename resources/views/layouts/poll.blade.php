@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    @include('layouts.head')
+
     @yield('head')
 </head>
 <body>
@@ -22,6 +24,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     @include('inc.alert')
+                    @include('layouts.body_top')
                     <div class="shadow mb-5 bg-white rounded poll">
                         @yield('content')
                     </div>
@@ -44,6 +47,9 @@
                 </div>
                 <div class="col-lg-3">
                     @include('inc.visitors')
+                    @if($sitesettings->where('name', 'body_right')->exists())
+                        {!! $sitesettings->where('name', 'body_right')->first()->value !!}
+                    @endif
                 </div>
             </div>
         </div>

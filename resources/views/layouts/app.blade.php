@@ -12,11 +12,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    {!! $sitesettings->where('name', 'head')->first()->value !!}
+    @include('layouts.head')
 
     @yield('head')
 </head>
 <body>
+    <div class="eupopup eupopup-top"></div>
+
     @include('inc.nav')
     <div id="app">
     <div class="container">
@@ -24,6 +26,7 @@
             <div style="width: 97%">
                 <div class="mx-auto mt-3 col-lg-10">
                     @include('inc.alert')
+                    @include('layouts.body_top')
                     <div class="shadow mb-5 bg-white rounded poll">
                         <h1 class="display">@yield('title-display')</h1>
                         <p class="lead">@yield('description-display')</p>
@@ -41,5 +44,7 @@
     @yield('body-bottom')
     <script src="{{ asset('js/app.js') }}" defer></script>
     @include('inc.google')
+    @include('inc.gdpr')
+
 </body>
 </html>
