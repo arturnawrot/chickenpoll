@@ -101,9 +101,9 @@ $description = "Make your own survey or poll in seconds! No registration require
             </div>
     @endforeach
     </div>
-    {{ $polls->links() }}
+{{--    {{ $polls->links() }}--}}
 
-    <div class="row mt-5">
+    <div class="row mt-3">
         @include('inc.posts')
     </div>
 @endsection
