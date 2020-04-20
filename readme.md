@@ -1,3 +1,8 @@
+## Screenshots
+
+![Example straw poll](https://raw.githubusercontent.com/Arturek1/cdn/master/sc2.PNG)
+
+![Main page](https://raw.githubusercontent.com/Arturek1/cdn/master/sc1.PNG)
 
 
 ## Installation
