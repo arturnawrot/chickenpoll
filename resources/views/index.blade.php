@@ -24,7 +24,7 @@ $description = "Make your own survey or poll in seconds! No registration require
                                 </div>
                               <div class="form-group">
                                   <label for="question1">Poll option</label>
-                                  <input name="options[]" class="form-control" id="question1" placeholder="Enter option">
+                                  <input name="options[]" class="form-control" id="question1" placeholder="Enter option" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="question1">Poll option</label>
