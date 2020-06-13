@@ -13,6 +13,8 @@ class Profile extends Model
 
     public function scopeFindByUsername($query, $name)
     {
-        return $query->where('user_id', User::Where('name', $name)->firstOrFail()->id)->firstOrFail();
+        return $query->whereHas('user', static function ($query) use ($name) {
+            $query->where('name', $name);
+        })->firstOrFail();
     }
 }
