@@ -52,7 +52,7 @@ class Vote implements ShouldBroadcast
         {
             $options[] = [
                 'id' => $option->id,
-                'responses' => $option->responses,
+                'responses' => $option->responsesCount,
                 'percentage' => $option->percentage,
             ];
         }

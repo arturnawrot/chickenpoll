@@ -10,6 +10,6 @@ class Report extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id', 'poll_id', 'content', 'email', 'ip', 'agent'
+        'poll_id', 'content', 'email', 'ip', 'agent'
     ];
 }

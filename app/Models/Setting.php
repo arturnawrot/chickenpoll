@@ -9,7 +9,7 @@ class Setting extends Model
     protected $primaryKey = 'poll_id';
 
     protected $fillable = [
-        'poll_id', 'name', 'value'
+        'name', 'value'
     ];
 
     public function poll()

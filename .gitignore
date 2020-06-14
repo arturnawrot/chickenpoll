@@ -26,3 +26,5 @@ laravel-echo-server.lock
 /bootstrap
 /bootstrap/cache
 *.save
+.idea/
+.vagrant/

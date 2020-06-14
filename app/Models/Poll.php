@@ -15,14 +15,8 @@ class Poll extends Model
 
     protected $table = 'polls';
 
-    protected $primaryKey = 'id';
-
     protected $fillable = [
         'title', 'ip', 'agent'
-    ];
-
-    protected $guarded = [
-        'id'
     ];
 
     public $sortable = [
