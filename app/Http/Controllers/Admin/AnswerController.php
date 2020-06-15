@@ -8,7 +8,7 @@ use App\Models\Option;
 use App\Models\Response;
 use App\Events\Vote;
 
-class ResponseController extends Controller
+class AnswerController extends Controller
 {
     private $option;
     private $Response;

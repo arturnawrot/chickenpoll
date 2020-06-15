@@ -7,7 +7,7 @@ use App\Models\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 // Voting policy
-class ResponsePolicy
+class AnswerPolicy
 {
     use HandlesAuthorization;
 
