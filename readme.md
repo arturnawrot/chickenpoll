@@ -1,3 +1,7 @@
+## Attention!
+
+This project needs major code refactoring. I started this project when I was still learning how to write good code, so please forgive me any spaghetti code. I will rewrite this project in the future if I have more free time.
+
 ## Screenshots
 
 ![Example straw poll](https://raw.githubusercontent.com/Arturek1/cdn/master/sc2.PNG)
