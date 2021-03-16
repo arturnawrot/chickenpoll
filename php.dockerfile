@@ -16,8 +16,6 @@ RUN apk add --no-cache make
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
 
-RUN apk add --update nodejs nodejs-npm
-
 RUN apk add --update --no-cache busybox-suid
 
 ADD crontab /crontab
