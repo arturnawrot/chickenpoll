@@ -1,5 +1,5 @@
-install: file-permission dependency-install generate-app-key migration install-assets assets-production optimize
-install-dev: file-permission dependency-install generate-app-key migration install-assets assets-dev optimize
+install: file-permission dependency-install generate-app-key migration optimize
+install-dev: file-permission dependency-install generate-app-key migration optimize
 
 file-permission:
 	chmod -R 777 storage
@@ -13,16 +13,7 @@ generate-app-key:
 	php artisan key:generate
 
 dependency-install:
-	composer install
-
-install-assets:
-	npm install
-
-assets-production:
-	npm run prod
-
-assets-dev:
-	npm run dev
+	composer update
 
 optimize:
 	php artisan route:cache
@@ -30,7 +21,4 @@ optimize:
 	php artisan view:clear
 	php artisan route:clear
 	php artisan config:cache
-	php artisan config:clear 
-
-random-avatar:
-	php artisan avatar:random
+	php artisan config:clear

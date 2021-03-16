@@ -10,10 +10,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "doctrine/inflector": "^1.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "laravel-doctrine/orm": "1.7.*",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5"
     },

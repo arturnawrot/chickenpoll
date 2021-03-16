@@ -12,7 +12,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - .:/var/www/html:delegated
+      - .:/var/www/html
     depends_on:
       - php
       - mysql
@@ -42,7 +42,7 @@ services:
       dockerfile: php.dockerfile
     container_name: php-chickenpoll
     volumes:
-      - .:/var/www/html:delegated
+      - .:/var/www/html
     ports:
       - "9000:9000"
     networks:
