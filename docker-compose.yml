@@ -6,13 +6,14 @@ networks:
 services:
   site:
     build:
-      context: .
+      context: docker
       dockerfile: nginx.dockerfile
     container_name: nginx-chickenpoll
     ports:
       - "80:80"
     volumes:
       - .:/var/www/html
+      - ./storage/logs/xdebug.log:/var/log/xdebug.log
     depends_on:
       - php
       - mysql
@@ -25,20 +26,21 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3307:3306"
+      - "3306:3306"
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
     environment:
-      MYSQL_DATABASE: homestead
-      MYSQL_USER: homestead
+      MYSQL_DATABASE: production
+      MYSQL_USER: laravel
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
     networks:
       - laravel
 
   php:
     build:
-      context: .
+      context: docker
       dockerfile: php.dockerfile
     container_name: php-chickenpoll
     volumes:

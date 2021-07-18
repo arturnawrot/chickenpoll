@@ -11,9 +11,11 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+package-lock.json
 composer.lock
 composer.phar
 npm-debug.log
 yarn-error.log
 *.swp
-package-lock.json
+*.cache
+storage/mysql

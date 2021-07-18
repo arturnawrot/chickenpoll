@@ -2,7 +2,7 @@ install: file-permission dependency-install generate-app-key migration optimize
 install-dev: file-permission dependency-install generate-app-key migration optimize
 
 file-permission:
-	chmod -R 777 storage
+	chmod -R 775 storage
 	chmod 775 bootstrap/cache/
 
 migration:
@@ -22,3 +22,7 @@ optimize:
 	php artisan route:clear
 	php artisan config:cache
 	php artisan config:clear
+
+test:
+	php artisan config:clear
+	php artisan test
