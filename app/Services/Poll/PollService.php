@@ -42,10 +42,12 @@ class PollService
     {
         $pollData = $pollRequestData->toArray();
 
-        $this->connection->transaction(function() use ($pollData) {
+        $poll = $this->connection->transaction(function() use ($pollData) {
             $poll = $this->initializePoll($pollData);
-            $this->addOptions($poll, $pollData['options']);
-            $this->addSettings($poll, $pollData['settings']);
+            $this->pollOptionService->create($poll, $pollData['options']);
+            $this->pollSettingService->create($poll, $pollData['settings']);
+
+            return $poll;
         });
 
         $this->dispatcher->dispatch(new PollCreated($poll));
@@ -60,21 +62,5 @@ class PollService
             'is_active' => 1,
             'ip' => Request::getClientIp()
         ]);
-    }
-
-    private function addOptions($poll, array $options) : void
-    {   
-        foreach($options as $option) {
-            $this->pollOptionService->create($poll, ['body' => $option]);
-        }
-    }
-
-    private function addSettings($poll, array $settings) : void
-    {
-        foreach($settings as $settingName => $settingValue) {
-            $this->pollSettingService->create($poll, [
-                $settingName => $settingValue
-            ]);
-        }
     }
 }

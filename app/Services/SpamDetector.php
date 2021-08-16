@@ -7,6 +7,7 @@ use App\Events\SpamDetected;
 use App\Factories\FilterFactory;
 use App\Exceptions\FilterDoesNotExist;
 use Illuminate\Contracts\Events\Dispatcher;
+use Request;
 
 class SpamDetector
 {
@@ -34,7 +35,7 @@ class SpamDetector
 
             if($filter->passes($string) === false) {
                 $this->dispatcher->dispatch(
-                    new SpamDetected($string, $_SERVER['REMOTE_ADDR'])
+                    new SpamDetected($string, Request::getClientIp())
                 );
 
                 return true;

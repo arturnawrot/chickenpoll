@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:8.0-fpm-alpine
 
 ADD ./php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
@@ -28,7 +28,7 @@ RUN /usr/bin/crontab /crontab
 
 COPY ./php_alpine_entrypoint.sh /
 
-RUN chmod 777 /php_alpine_entrypoint.sh
+RUN chmod 775 /php_alpine_entrypoint.sh
 
 RUN touch /var/log/xdebug.log && chmod 777 /var/log/xdebug.log
 

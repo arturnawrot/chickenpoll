@@ -7,9 +7,15 @@ use App\Models\PollSetting;
 
 class PollSettingService
 {
-    public function create(Poll $poll, array $setting) : PollSetting
-    {
-        dd($setting);
-        return $poll->settings()->create($setting);
+    public function create(Poll $poll, array $settings) : array
+    {   
+        $settings = array_map(function ($settingName, $settingValue) {
+            return new PollSetting([
+                'name' => $settingName,
+                'value' => $settingValue
+            ]);
+        }, array_keys($settings), $settings);
+
+        return $poll->settings()->saveMany($settings);
     }
 }

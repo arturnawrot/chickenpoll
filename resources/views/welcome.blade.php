@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<?php xdebug_info(); ?>
 <form id="form-poll-store" method="POST" action="{{ route('poll.store') }}">
     @csrf
     <div class="py-3 options" id="options">

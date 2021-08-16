@@ -18,7 +18,6 @@ class PollController extends Controller
     {
         $data = $request->getDto();
 
-        // dd($data);
         $poll = $this->pollService->create($data);
     }
 }
