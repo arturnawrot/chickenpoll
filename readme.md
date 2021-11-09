@@ -2,6 +2,8 @@
 
 This project is a great example how to NOT write web applications due to shamless mixing business logic with the domain layer. It needs major code refactoring. I started this project when I was still learning how to program. I will rewrite this project in the future if I have more free time.
 
+If you are an interviewer please take a look at the 2 other projects.
+
 8/16/2021 Update: Currently I'm working on a new version of ChickenPoll in a new branch v2-rewrite.
 
 ## Screenshots
