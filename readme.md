@@ -1,6 +1,7 @@
 ## Attention!
-
 This project is a great example how to NOT write web applications due to shamless mixing business logic with the domain layer. It needs major code refactoring. I started this project when I was still learning how to program. I will rewrite this project in the future if I have more free time.
+
+If you are a recruiter I encourage you to take a look at my other projects such as: rocketcontent, web-scraper, plagiarism-checker.
 
 ## Screenshots
 
